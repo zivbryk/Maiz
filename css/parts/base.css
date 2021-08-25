@@ -1,11 +1,23 @@
 /* BASE */
 
+@font-face {
+    font-family: montserrat-regular;
+    src: url('../../assets/fonts/Montserrat/Montserrat-Regular.ttf')
+}
+
+@font-face {
+    font-family: montserrat-bold;
+    src: url('../../assets/fonts/Montserrat/Montserrat-Bold.ttf')
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
+    color: rgb(48, 48, 48);
+    font-family: montserrat-regular;
 }
 
 a {
