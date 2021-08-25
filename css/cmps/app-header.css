@@ -1,0 +1,18 @@
+/* APP HEADER */
+
+.app-header {
+    margin: 10px;
+}
+
+.nav-icon {
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.header-grid {
+    margin-inline-start: 40px;
+}
+
+.header-logo {
+    font-size: 3rem;
+}

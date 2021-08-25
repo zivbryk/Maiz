@@ -1,1 +1,32 @@
 /* FONTS */
+
+/* font-awesome */
+
+@font-face {
+    font-family: Solids;
+    src: url(../../assets/fonts/Awesome/fa-solid-900.ttf);
+}
+
+.fas::before {
+    font-family: Solids;
+}
+
+.fas.fa-home::before {
+    content: "\f015";
+}
+
+.fas.fa-envelope::before {
+    content: "\f0e0";
+}
+
+.fas.fa-sticky-note::before {
+    content: "\f249";
+}
+
+.fas.fa-book-open::before {
+    content: "\f518";
+}
+
+.fas.fa-th::before {
+    content: "\f00a";
+}

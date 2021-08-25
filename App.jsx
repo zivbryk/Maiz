@@ -10,9 +10,6 @@ import { Zmail } from './js/pages/zmail.jsx'
 // Simple React Component
 export function App() {
     return (
-        //book app
-        //maill app
-        //keep app
         <Router>
             <header>
                 <AppHeader />
