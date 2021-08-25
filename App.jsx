@@ -1,12 +1,11 @@
-// const Router = ReactRouterDOM.HashRouter
-// const { Route, Switch } = ReactRouterDOM
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
-import { BookApp } from './pages/BookApp.jsx'
-import { Home } from './pages/Home.jsx'
-import { About } from './pages/About.jsx'
-import { AppHeader } from './cmps/AppHeader.jsx'
-import { BookDetails } from './pages/BookDetails.jsx'
+import { AppHeader } from './js/cmps/app-header.jsx'
+import { AppHome } from './js/pages/app-home.jsx'
+import { Mbooks } from './js/pages/mbooks.jsx'
+import { Keeper } from './js/pages/keeper.jsx'
+import { Zmail } from './js/pages/zmail.jsx'
+
 
 // Simple React Component
 export function App() {
@@ -21,10 +20,10 @@ export function App() {
             <main className="app">
                 <Switch>
 
-                    <Route path="/book/:bookId" component={BookDetails} />
-                    <Route path="/book" component={BookApp} />
-                    <Route path="/about" component={About} />
-                    <Route path="/" component={Home} />
+                    <Route path="/mbooks" component={Mbooks} />
+                    <Route path="/zmail" component={Zmail} />
+                    <Route path="/keeper" component={Keeper} />
+                    <Route path="/" component={AppHome} />
 
                 </Switch>
             </main>
