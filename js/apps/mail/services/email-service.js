@@ -82,7 +82,7 @@ function _createEmails() {
 }
 
 function _saveEmailsToStorage() {
-    storageService.saveToStorage(KEY, gInboxEmails)
+    storageService.saveToStorage(KEY, gEmails)
 }
 
 function addReview(book, review) {

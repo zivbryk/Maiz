@@ -1,4 +1,4 @@
-import { emailService } from '../apps/mail/services/email.service.js';
+import { emailService } from '../apps/mail/services/email-service.js';
 import { BookList } from '../cmps/BookList.jsx'
 import { BookFilter } from '../cmps/BookFilter.jsx'
 import { BookDetails } from './BookDetails.jsx'
