@@ -1,4 +1,4 @@
-// import { CarPreview } from './CarPreview.jsx'
+import { NotePreview } from '../cmps/note-preview.jsx'
 export function NoteList({ notes }) {
     return (
         <div className="note-list">

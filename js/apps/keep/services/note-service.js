@@ -1,5 +1,6 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/storage.service.js'
+import { notes } from '../data/notes.js'
 
 export const noteService = {
     query,
@@ -11,37 +12,7 @@ export const noteService = {
 
 const KEY = 'notes';
 
-var gNotes = [
-    {
-        id: "n101",
-        type: "note-txt",
-        isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: { backgroundColor: "#00d" }
-    },
-    {
-        id: "n103",
-        type: "note-todos",
-        info: {
-            label: "Get my stuff together",
-            todos: [{
-                txt: "Driving liscence",
-                doneAt: null
-            },
-            {
-                txt: "Coding power",
-                doneAt: 187111111
-            }]
-        }
-    }]
+var gNotes
 
 _createNotes();
 
@@ -61,11 +32,11 @@ function query(filterBy) {
 }
 
 function _createNotes() {
-    var notes = storageService.loadFromStorage(KEY)
-    if (!notes || !notes.length) {
+    gNotes = storageService.loadFromStorage(KEY)
+    if (!gNotes || !gNotes.length) {
         gNotes = notes;
+        _saveNotesToStorage();
     }
-    _saveNotesToStorage();
 }
 
 function _saveNotesToStorage() {

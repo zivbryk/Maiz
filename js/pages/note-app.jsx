@@ -1,4 +1,5 @@
-import { noteService } from '../../js/apps/keep/services/note-service.js'
+import { noteService } from '../apps/keep/services/note-service.js'
+import { NoteList } from '../apps/keep/cmps/note-list.jsx';
 
 export class NoteApp extends React.Component {
     state = {
@@ -18,17 +19,22 @@ export class NoteApp extends React.Component {
     }
 
     loadNotes = () => {
+        console.log('notes loaded')
         noteService.query(this.state.filterBy).then((notes) => {
             // eventBusService.emit('notes-count', notes.length)
             this.setState({ notes });
         });
+
+
     }
 
     render() {
+        const { notes } = this.state
         return (
             <section className="note-app">
                 <h1>Keeper</h1>
-
+                {/* {JSON.stringify(notes)} */}
+                <NoteList notes={notes} />
                 {/* <CarList cars={this.carsToDisplay} onSelectCar={this.onSelectCar} /> */}
             </section>
         )
