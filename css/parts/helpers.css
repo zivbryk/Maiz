@@ -31,3 +31,7 @@
 .grid {
     display: grid;
 }
+
+.wrap {
+    flex-wrap: wrap;
+}

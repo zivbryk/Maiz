@@ -2,4 +2,7 @@
 @import '../css/parts/fonts.css';
 @import '../css/parts/helpers.css';
 @import '../css/cmps/app-header.css';
-@import '../css/cmps/app-home.css'
+@import '../css/cmps/app-home.css';
+@import '../css/apps/keeper/note-preview.css';
+@import '../css/apps/keeper/note-list.css';
+@import '../css/cmps/search-bar.css';

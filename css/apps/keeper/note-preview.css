@@ -1,0 +1,10 @@
+/* NOTE PREVIEW */
+
+.note-preview {
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    break-inside: avoid;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
