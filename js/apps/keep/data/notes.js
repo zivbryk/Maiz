@@ -1,29 +1,29 @@
-import { } from '../'
+import { utilService } from '../../../services/util.service.js'
 
 export const notes = [
     {
-        id: "n101",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: { txt: "Do the Laundry" }
     }, {
-        id: "n102",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: { txt: "Plant Bananas!" }
     }, {
-        id: "n103",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: { txt: "Buy Doron a Bday present" }
     }, {
-        id: "n104",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: { txt: "Fullstack Me Baby!" }
     },
     {
-        id: "n105",
+        id: utilService.makeId(),
         type: "note-img",
         info: {
             url: "http://some-img/me",
@@ -32,7 +32,7 @@ export const notes = [
         style: { backgroundColor: "#00d" }
     },
     {
-        id: "n106",
+        id: utilService.makeId(),
         type: "note-todos",
         info: {
             label: "Get my stuff together",
@@ -47,13 +47,13 @@ export const notes = [
         },
     },
     {
-        id: "n107",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: { txt: "Fullstack Me Baby!" }
     },
     {
-        id: "n108",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: { txt: "Fullstack Me Baby!" }
