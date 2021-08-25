@@ -1,6 +1,6 @@
 import { emailService } from '../apps/mail/services/email-service.js';
 import { EmailList } from '../apps/mail/cmps/email-list.jsx'
-// import { BookFilter } from '../cmps/BookFilter.jsx'
+import { EmailFilter } from '../apps/mail/cmps/mail-filter.jsx'
 // import { BookDetails } from './BookDetails.jsx'
 
 
@@ -12,6 +12,7 @@ export class EmailApp extends React.Component {
 
     componentDidMount() {
         this.loadEmails();
+       
     }
 
     loadEmails = () => {
@@ -21,9 +22,9 @@ export class EmailApp extends React.Component {
             });
     };
 
-    // onSetFilter = (filterBy) => {
-    //     this.setState({ filterBy }, this.loadBooks)//2nd arg of setState is a cb function that activates AFTER setState was done 
-    // }
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy }, this.loadEmails)//2nd arg of setState is a cb function that activates AFTER setState was done 
+    }
 
 
 
@@ -33,9 +34,8 @@ export class EmailApp extends React.Component {
             <section className="email-app">
 
                 {/* {!selectedBook && <React.Fragment></React.Fragment> */}
-                {/* <BookFilter onSetFilter={this.onSetFilter} /> */}
+                <EmailFilter onSetFilter={this.onSetFilter} />
                 <EmailList emails={emails} />
-                {/* {JSON.stringify(emails)} */}
                 {/* {selectedBook && <BookDetails book={selectedBook} onGoBack={() => this.onSelectBook(null)} />} */}
 
 

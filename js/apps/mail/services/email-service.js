@@ -21,12 +21,12 @@ var gEmails;
 _createEmails();
 
 function query(filterBy) {
-    // if (filterBy) {
-    //     let { bookPriceRange, bookTitle } = filterBy;
-    //     bookPriceRange = bookPriceRange ? bookPriceRange : Infinity;
-    //     const booksToShow = gBooks.filter(book => book.title.includes(bookTitle.toLowerCase()) && book.listPrice.amount <= bookPriceRange)
-    //     return Promise.resolve(booksToShow);
-    // }
+    if (filterBy) {
+        let { emailStatus } = filterBy;
+        const emailsToShow = gEmails.filter(email => email.status === emailStatus)
+        // const booksToShow = gBooks.filter(book => book.title.includes(bookTitle.toLowerCase()) && book.listPrice.amount <= bookPriceRange)
+        return Promise.resolve(emailsToShow);
+    }
     return Promise.resolve(gEmails);
 }
 
