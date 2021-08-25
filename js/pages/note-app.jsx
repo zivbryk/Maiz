@@ -1,8 +1,8 @@
-export class Zmail extends React.Component {
+export class NoteApp extends React.Component {
     render() {
         return (
             <section>
-                <h1>Zmail</h1>
+                <h1>Keeper</h1>
             </section>
         )
     }

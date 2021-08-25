@@ -1,8 +1,8 @@
-export class Keeper extends React.Component {
+export class EmailApp extends React.Component {
     render() {
         return (
             <section>
-                <h1>Keeper</h1>
+                <h1>Zmail</h1>
             </section>
         )
     }
