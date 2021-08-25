@@ -6,7 +6,7 @@ export function AppHome() {
             </div>
             <div className="features flex flex-row space-evenly">
                 <div className="keeper-features">
-                    <h3>keeper</h3>
+                    <h3>Keeper</h3>
                     <button className="btn-keeper-features">Learn More</button>
                 </div>
                 <div className="zmail-features">
