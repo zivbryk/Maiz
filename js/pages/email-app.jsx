@@ -1,5 +1,5 @@
 import { emailService } from '../apps/mail/services/email-service.js';
-import { BookList } from '../cmps/BookList.jsx'
+import { EmailList } from '../apps/mail/cmps/email-list.jsx'
 import { BookFilter } from '../cmps/BookFilter.jsx'
 import { BookDetails } from './BookDetails.jsx'
 
@@ -34,8 +34,8 @@ export class EmailApp extends React.Component {
 
                 {/* {!selectedBook && <React.Fragment></React.Fragment> */}
                 {/* <BookFilter onSetFilter={this.onSetFilter} /> */}
-                {/* <EmailsList emails={emails} /> */}
-                {JSON.stringify(emails)}
+                <EmailList emails={emails} />
+                {/* {JSON.stringify(emails)} */}
                 {/* {selectedBook && <BookDetails book={selectedBook} onGoBack={() => this.onSelectBook(null)} />} */}
 
 

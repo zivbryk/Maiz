@@ -2,13 +2,13 @@ import { emails } from '../data/emails.js'
 import { storageService } from './storage.service.js'
 import { utilService } from './util.service.js'
 
-export const bookService = {
+export const emailService = {
     query,
-    getCurrencySymbol,
-    getBookById,
-    addReview,
-    removeReview,
-    saveBook,
+    // getCurrencySymbol,
+    // getBookById,
+    // addReview,
+    // removeReview,
+    // saveBook,
     // loggedinUser,
 }
 
@@ -27,7 +27,7 @@ function query(filterBy) {
     //     const booksToShow = gBooks.filter(book => book.title.includes(bookTitle.toLowerCase()) && book.listPrice.amount <= bookPriceRange)
     //     return Promise.resolve(booksToShow);
     // }
-    return Promise.resolve(gEmails)
+    return Promise.resolve(gEmails);
 }
 
 function getCurrencySymbol(currencyCode) {
