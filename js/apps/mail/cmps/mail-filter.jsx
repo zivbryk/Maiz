@@ -1,0 +1,32 @@
+
+export class EmailFilter extends React.Component {
+
+    state = {
+        filterBy: {
+            emailStatus: null,
+        }
+    }
+
+    onChooseFilter = (ev) => {
+        const value = ev.target.value;
+        this.setState(prevState => (({...prevState, filterBy: {...prevState.filterBy, emailStatus: value}})), () => {
+            this.props.onSetFilter(this.state.filterBy)
+        })
+    }
+
+
+    render() {
+        // const { emailStatus } = this.state.filterBy;
+        return (
+            <section className="email-side-filter">
+                    <button value = "inbox" onClick = {this.onChooseFilter}>Inbox</button>
+                    <button>Starred</button>
+                    <button value = "sent" onClick = {this.onChooseFilter}>Sent Mail</button>
+                    <button>Drafts</button>
+                    <button>Trash</button>
+            </section >
+        )
+
+    }
+
+}
