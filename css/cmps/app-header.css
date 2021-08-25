@@ -7,6 +7,7 @@
 .nav-icon {
     font-size: 3rem;
     padding: 10px;
+    color: green;
 }
 
 .header-grid {
@@ -15,4 +16,8 @@
 
 .header-logo {
     font-size: 3rem;
+}
+
+.nav-icon.fa-user {
+    margin-inline-start: 20px;
 }

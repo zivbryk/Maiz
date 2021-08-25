@@ -30,3 +30,7 @@
 .fas.fa-th::before {
     content: "\f00a";
 }
+
+.fas.fa-user::before {
+    content: "\f007";
+}
