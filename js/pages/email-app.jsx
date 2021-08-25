@@ -1,7 +1,7 @@
 import { emailService } from '../apps/mail/services/email-service.js';
 import { EmailList } from '../apps/mail/cmps/email-list.jsx'
-import { BookFilter } from '../cmps/BookFilter.jsx'
-import { BookDetails } from './BookDetails.jsx'
+// import { BookFilter } from '../cmps/BookFilter.jsx'
+// import { BookDetails } from './BookDetails.jsx'
 
 
 export class EmailApp extends React.Component {
