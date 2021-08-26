@@ -30,13 +30,23 @@ export class EmailCompose extends React.Component {
         this.props.onSaveEmail(value, to, subject, body)
     }
 
+    sendDraft =() => {
+        const { to, subject, body } = this.state.newEmail;
+        console.log('sendDraft activated')
+        if (to === '' && subject === '' && body === '') {
+            this.props.onCloseCompose()
+        } else {
+            this.props.onSaveEmail('draft', to, subject, body)
+        }
+    }
+
     render() {
         const { to, subject, body } = this.state.newEmail;
         
         return(
              <section className="email-compose">
                     <div className="exit-compose">
-                        <button onClick = {this.props.onCloseCompose}>X</button>
+                        <button onClick = {this.sendDraft}>X</button>
                     </div>
         <form className="email-compose-form" >
         <label htmlFor='email-to'>To </label>

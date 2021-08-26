@@ -50,6 +50,7 @@ emailService.addEmail(status, to, subject, body)
 .then(
     this.loadEmails
     );
+    this.setState({compose: false})
     }
     // onSaveDraft = () => {
 
