@@ -3,26 +3,34 @@ import { NoteTodos } from './note-todos.jsx'
 import { NoteImg } from './note-img.jsx'
 import { NoteVideo } from './note-video.jsx'
 import { NoteActions } from './note-actions.jsx'
-import { noteService } from '../../keep/services/note-service'
-import { Loading } from '../../../cmps'
+import { noteService } from '../../keep/services/note-service.js'
+import { Loading } from '../../../cmps/Loading.jsx'
 
 export class NoteDetails extends React.Component {
     // { note, onToggleTodoStrike, onSelectNote, onClose }
     state = {
         note: null
     }
+
     componentDidMount() {
         console.log('note-details mounted');
-        const noteId = this.propsmatch.params.noteId
+        const noteId = this.props.match.params.noteId
         noteService.getNoteById(noteId)
-            .then(book => {
+            .then(note => {
                 this.setState({ note })
             })
     }
 
+    onToggleTodoStrike = (idx, noteId, ev) => {
+        ev.stopPropagation()
+        noteService.toggleTodoStrike(idx, noteId)
+            .then(this.setState({ note }))
+    }
 
     getCmp = () => {
-        const { note, onToggleTodoStrike } = this.props
+        const { onToggleTodoStrike } = this.props
+        console.log('getCmp in details', onToggleTodoStrike);
+        const { note } = this.state
         switch (note.type) {
             case "note-txt":
                 return <NoteTxt note={note} />
@@ -36,16 +44,20 @@ export class NoteDetails extends React.Component {
         }
     }
 
+    onClose = () => {
+        this.props.history.push('/keeper')
+    }
+
     render() {
         const { note } = this.state
-        const { onClose } = this.props
+        // const { onClose } = this.props
         if (!note) return <Loading />
 
         return (
             <article className="note-details" >
-                <button className="close-btn" onClick={onClose}> X</button>
+                <button className="close-btn" onClick={this.onClose}> X</button>
                 {this.getCmp()}
-                <NoteActions />
+                <NoteActions note={note} />
             </article >
         )
     }

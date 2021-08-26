@@ -5,7 +5,8 @@ import { NoteVideo } from './note-video.jsx'
 import { NoteActions } from './note-actions.jsx'
 const { Link } = ReactRouterDOM
 
-export function NotePreview({ note, onToggleTodoStrike, onSelectNote }) {
+export function NotePreview({ note, onToggleTodoStrike, onRemoveNote }) {
+    console.log('NotePreview props: ', onToggleTodoStrike);
     function getCmp() {
         switch (note.type) {
             case "note-txt":
@@ -16,18 +17,18 @@ export function NotePreview({ note, onToggleTodoStrike, onSelectNote }) {
                 return <NoteImg note={note} />
             case "note-video":
                 return <NoteVideo note={note} />
-
         }
     }
 
     return (
-        <React.Fragment>
-            <Link to={`/keeper/${note.id}`}>
-                <article className="note-preview" /* onClick={() => { onSelectNote(note) }} */>
-                    {getCmp()}
-                </article>
-            </Link>
-            <NoteActions />
-        </React.Fragment>
+        <section className="note-preview">
+            {/* <Link to={`/keeper/${note.id}`}> */}
+            <article  /* onClick={() => { onSelectNote(note) }} */>
+                {getCmp()}
+            </article>
+            {/* </Link> */}
+            <NoteActions note={note} onRemoveNote={onRemoveNote} />
+        </section>
+
     )
 }

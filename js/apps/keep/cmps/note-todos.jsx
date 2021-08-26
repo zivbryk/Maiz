@@ -6,6 +6,9 @@ export class NoteTodos extends React.Component {
         //
     }
 
+    componentDidMount() {
+        console.log('note-todos mounted');
+    }
 
     render() {
         const { note, onToggleTodoStrike } = this.props
@@ -16,7 +19,6 @@ export class NoteTodos extends React.Component {
                 <h2>{note.info.label}</h2>
                 <div className="todos-container">
                     {note.info.todos.map((todo, idx) => {
-                        // return <h3 key={utilService.makeId()}>{todo.txt} {todo.doneAt && <span>{todo.doneAt}</span>}</h3>
                         return (
                             <div key={idx}>
                                 <input type="checkbox"
@@ -24,7 +26,7 @@ export class NoteTodos extends React.Component {
                                     name="note"
                                     value=""
                                     checked={note.info.todos[idx].doneAt !== null}
-                                    onChange={() => onToggleTodoStrike(idx, note.id)} />
+                                    onChange={() => onToggleTodoStrike(idx, note.id, event)} />
                                 <label className={note.info.todos[idx].doneAt && "strike-through"} htmlFor={idx}>{todo.txt}</label>
                             </div>
                         )

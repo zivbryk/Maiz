@@ -17,7 +17,7 @@ export function App() {
             </header>
             <main className="app">
                 <Switch>
-                    <Route exact path="/keeper/:noteId" component={NoteDetails} />
+                    <Route path="/keeper/:noteId" component={NoteDetails} />
                     <Route path="/mbooks" component={Mbooks} />
                     <Route path="/zmail" component={EmailApp} />
                     <Route path="/keeper" component={NoteApp} />

@@ -1,4 +1,4 @@
-import { utilService } from '../../../services/util.service.js'
+// import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/storage.service.js'
 import { notes } from '../data/notes.js'
 
@@ -6,7 +6,7 @@ export const noteService = {
     query,
     getNoteById,
     toggleTodoStrike,
-    deleteNote
+    RemoveNote
     // saveCar,
     // getNextCarId
 }
@@ -89,7 +89,8 @@ function toggleTodoStrike(todoIdx, noteId) {
     return Promise.resolve()
 }
 
-function deleteNote(noteId) {
+function RemoveNote(noteId) {
+    console.log('delete from service');
     var noteIdx = gNotes.findIndex(function (note) {
         return noteId === note.id
     })
