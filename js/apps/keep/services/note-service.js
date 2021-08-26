@@ -29,10 +29,22 @@ function query(filterBy) {
 function query(filterBy) {
     if (filterBy) {
         let { inputTxt } = filterBy;
-        const notesToShow = gNotes.filter(note => note.info.txt.includes(inputTxt.toLowerCase()) ||
-            note.info.title.includes(inputTxt.toLowerCase()) ||
-            note.info.label.includes(inputTxt.toLowerCase()) ||
-            note.info.todos.some(todo => todo.txt.includes(inputTxt.toLowerCase())))
+        const searchRex = new RegExp(inputTxt, 'i')
+        //const notesToShow = gNotes.filter(note => note.info.txt.includes(inputTxt.toLowerCase()) ||
+        // const notesToShow = gNotes.filter(note => searchRex.test(note.info.txt) ||
+        //     note.info.title.includes(inputTxt.toLowerCase()) ||
+        //     note.info.label.includes(inputTxt.toLowerCase()) ||
+        //     note.info.todos.some(todo => todo.txt.includes(inputTxt.toLowerCase())))
+        const notesToShow = gNotes.filter(note => {
+            switch (note.type) {
+                case "note-txt":
+                    return searchRex.test(note.info.txt)
+                case "note-img":
+                    return searchRex.test(note.info.title)
+                case "note-todos":
+                    return searchRex.test(note.info.label)
+            }
+        })
         return Promise.resolve(notesToShow);
     }
     return Promise.resolve(gNotes)

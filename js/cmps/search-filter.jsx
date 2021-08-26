@@ -9,27 +9,33 @@ export class SearchFilter extends React.Component {
         // console.log(ev.target.value)
         const field = ev.target.name
         const value = ev.target.type === 'number' ? + ev.target.value : ev.target.value
-        this.setState({ filterBy: { ...this.setState.filterBy, [field]: value } })
+        this.setState(prevState => ({ ...prevState, filterBy: { ...prevState.filterBy, [field]: value } }))
     }
 
+    onFilter = () => {
+        //
+    }
     render() {
         const { txt } = this.state.filterBy
         return (
-            <div className="search-filter flex align-center" >
+            <div className="search-filter flex align-center" onSubmit={this.onFilter}>
                 <div>
                     <form className="search-form" action="">
-                        <button className="search-btn"><span className="fas fa-search"></span></button>
+                        <button className="search-btn">
+                            <span className="fas fa-search"></span>
+                        </button>
+
                         <input
                             className="search-input"
                             type="search"
-                            name="searchFilter"
+                            name="txt"
                             id="searchFilter"
                             placeholder="Search"
                             value={txt}
                             onChange={this.handleChange} />
                     </form>
                 </div>
-            </div>
+            </div >
         )
     }
 

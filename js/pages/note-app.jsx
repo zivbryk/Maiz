@@ -29,6 +29,8 @@ export class NoteApp extends React.Component {
 
     }
 
+    // onToggleTodo //send all the way to noteTodo!!!!
+
     render() {
         const { notes } = this.state
         return (
