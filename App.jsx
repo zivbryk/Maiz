@@ -5,6 +5,7 @@ import { AppHome } from './js/pages/app-home.jsx'
 import { Mbooks } from './js/pages/mbooks.jsx'
 import { NoteApp } from './js/pages/note-app.jsx'
 import { EmailApp } from './js/pages/email-app.jsx'
+import { EmailDetails } from './js/apps/mail/pages/mail-details.jsx'
 
 
 // Simple React Component
@@ -16,6 +17,8 @@ export function App() {
             </header>
             <main className="app">
                 <Switch>
+                <Route path="/zmail/:emailId" component={EmailDetails} />
+
                     <Route path="/mbooks" component={Mbooks} />
                     <Route path="/zmail" component={EmailApp} />
                     <Route path="/keeper" component={NoteApp} />

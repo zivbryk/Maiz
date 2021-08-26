@@ -54,24 +54,24 @@ emailService.addEmail(status, to, subject, body)
     }
 
     render() {
-        const { emails, filterBy, compose } = this.state
+        const { emails, compose } = this.state
         return (
             <section className="email-app">
-
-                {/* {!selectedBook && <React.Fragment></React.Fragment> */}
-                <img src= 'assets/img/compose.png' />
+  
                 <section className = "email-app-sidebar">
-                <button className="compose-email-btn" onClick = {() => this.onOpenCompose()}>+ Compose</button>
+                <button className="compose-email-btn" onClick = {() => this.onOpenCompose()}>
+                <img className = "email-compose-img" src= 'assets/img/email-compose-img.png' />
+                     Compose</button>
                 <EmailFilter onSetFilter={this.onSetFilter} />
                 
                 </section>
                 {compose && <EmailCompose onCloseCompose = {this.onCloseCompose} onSaveEmail = {this.onSaveEmail}/>}
+                <section className="email-app-board">
                 <EmailList emails={emails} onChangeEmailStatus = {this.onChangeEmailStatus}/>
-                {/* {selectedBook && <BookDetails book={selectedBook} onGoBack={() => this.onSelectBook(null)} />} */}
-
-
+                </section>
 
             </section>
         );
     }
 }
+

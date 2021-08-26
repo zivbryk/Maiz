@@ -6,6 +6,7 @@ export const emailService = {
     query,
     changeEmailStatus,
     addEmail,
+    getEmailById,
     // loggedinUser,
 }
 
@@ -65,12 +66,12 @@ function removeEmail(emailId) {
 //     return Promise.resolve(gBooks[bookIdx]);
 // }
 
-// function getBookById(bookId) {
-//     var book = gBooks.find(function (book) {
-//         return bookId === book.id
-//     })
-//     return Promise.resolve(book)
-// }
+function getEmailById(emailId) {
+    var email = gEmails.find(function (email) {
+        return emailId === email.id
+    })
+    return Promise.resolve(email)
+}
 
 function _createEmails() {
     gEmails = storageService.loadFromStorage(KEY)
