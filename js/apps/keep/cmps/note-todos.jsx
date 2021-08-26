@@ -23,7 +23,7 @@ export class NoteTodos extends React.Component {
                                     id={idx}
                                     name="note"
                                     value=""
-                                    // {note.info.todos[idx].doneAt && checked}
+                                    checked={note.info.todos[idx].doneAt !== null}
                                     onChange={() => onToggleTodoStrike(idx, note.id)} />
                                 <label className={note.info.todos[idx].doneAt && "strike-through"} htmlFor={idx}>{todo.txt}</label>
                             </div>

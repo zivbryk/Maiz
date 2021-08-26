@@ -2,6 +2,7 @@ import { noteService } from '../apps/keep/services/note-service.js'
 import { NoteList } from '../apps/keep/cmps/note-list.jsx'
 import { SearchFilter } from '../cmps/search-filter.jsx'
 import { NotePreview } from '../apps/keep/cmps/note-preview.jsx';
+import { NoteDetails } from '../apps/keep/cmps/note-details.jsx';
 
 export class NoteApp extends React.Component {
     state = {
@@ -64,7 +65,11 @@ export class NoteApp extends React.Component {
                             onSelectNote={this.onSelectNote} />
                     </section>
                 )}
-                {selectedNote && <NotePreview note={selectedNote} onToggleTodoStrike={this.onToggleTodoStrike} onSelectNote={this.onSelectNote} />}
+                {selectedNote && <NoteDetails
+                    note={selectedNote}
+                    onToggleTodoStrike={this.onToggleTodoStrike}
+                    onSelectNote={this.onSelectNote}
+                    onClose={() => this.onSelectNote(null)} />}
             </section>
         )
     }

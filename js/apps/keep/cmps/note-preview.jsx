@@ -3,6 +3,7 @@ import { NoteTodos } from './note-todos.jsx'
 import { NoteImg } from './note-img.jsx'
 import { NoteVideo } from './note-video.jsx'
 import { NoteActions } from './note-actions.jsx'
+const { Link } = ReactRouterDOM
 
 export function NotePreview({ note, onToggleTodoStrike, onSelectNote }) {
     function getCmp() {
@@ -20,9 +21,13 @@ export function NotePreview({ note, onToggleTodoStrike, onSelectNote }) {
     }
 
     return (
-        <article className="note-preview" onClick={() => { onSelectNote(note) }}>
-            {getCmp()}
+        <React.Fragment>
+            <Link to={`/keeper/${note.id}`}>
+                <article className="note-preview" /* onClick={() => { onSelectNote(note) }} */>
+                    {getCmp()}
+                </article>
+            </Link>
             <NoteActions />
-        </article>
+        </React.Fragment>
     )
 }
