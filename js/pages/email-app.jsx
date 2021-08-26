@@ -1,6 +1,7 @@
 import { emailService } from '../apps/mail/services/email-service.js';
 import { EmailList } from '../apps/mail/cmps/email-list.jsx'
 import { EmailFilter } from '../apps/mail/cmps/mail-filter.jsx'
+import { EmailCompose } from '../apps/mail/cmps/email-compose.jsx'
 // import composeImg from '../../assets/img/compose.png'
 // import { BookDetails } from './BookDetails.jsx'
 
@@ -9,6 +10,7 @@ export class EmailApp extends React.Component {
     state = {
         emails: [],
         filterBy: null,
+        compose: false,
     }
 
     componentDidMount() {
@@ -29,22 +31,43 @@ export class EmailApp extends React.Component {
 
     onChangeEmailStatus = (emailId, status) => {
         console.log(emailId, status)
-emailService.changeEmailStatus(emailId, status)
+        emailService.changeEmailStatus(emailId, status)
+            .then(
+                this.loadEmails
+                );
+    }
+
+    onOpenCompose = () => {
+        this.setState({compose: true})
+    }
+    
+    onCloseCompose = () => {
+        this.setState({compose: false})
+    }
+
+    onSaveEmail = (status, to, subject, body) => {
+emailService.addEmail(status, to, subject, body)
 .then(
     this.loadEmails
-);
+    );
     }
+    // onSaveDraft = () => {
+
+    // }
+
+
 
 
 
     render() {
-        const { emails } = this.state
+        const { emails, compose } = this.state
         return (
             <section className="email-app">
 
                 {/* {!selectedBook && <React.Fragment></React.Fragment> */}
-                {/* <img src= {composeImg} alt="" /> */}
-                <button className="compose-email"> Compose</button>
+                {/* <img src= {composeImg} /> */}
+                <button className="compose-email" onClick = {() => this.onOpenCompose()}>+ Compose</button>
+                {compose && <EmailCompose onCloseCompose = {this.onCloseCompose} onSaveEmail = {this.onSaveEmail}/>}
                 <EmailFilter onSetFilter={this.onSetFilter} />
                 <EmailList emails={emails} onChangeEmailStatus = {this.onChangeEmailStatus}/>
                 {/* {selectedBook && <BookDetails book={selectedBook} onGoBack={() => this.onSelectBook(null)} />} */}
