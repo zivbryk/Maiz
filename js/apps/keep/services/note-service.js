@@ -72,14 +72,19 @@ function getNoteById(noteId) {
     return Promise.resolve(note)
 }
 
-function toggleTodoStrike(idx, noteId) {
-    getNoteById(noteId)
-        .then(note => {
-            note.info.todos[idx].doneAt ?
-                note.info.todos[idx].doneAt = null :
-                note.info.todos[idx].doneAt = Date.now()
-            console.log(idx, note.info.todos[idx].doneAt)
-        })
+function toggleTodoStrike(todoIdx, noteId) {
+    const noteIdx = gNotes.findIndex(note => noteId === note.id)
+
+    gNotes[noteIdx].info.todos[todoIdx].doneAt = gNotes[noteIdx].info.todos[todoIdx].doneAt ?
+        gNotes[noteIdx].info.todos[todoIdx].doneAt = null :
+        gNotes[noteIdx].info.todos[todoIdx].doneAt = Date.now()
+    // getNoteById(noteId)
+    //     .then(note => {
+    //         gNotes[idx].info.todos[idx].doneAt ?
+    //             gNotes[idx].info.todos[idx].doneAt = null :
+    //             gNotes[idx].info.todos[idx].doneAt = Date.now()
+    //         console.log(idx, note.info.todos[idx].doneAt)
+    //     })
     _saveNotesToStorage()
     return Promise.resolve()
 }
