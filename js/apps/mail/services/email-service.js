@@ -4,6 +4,7 @@ import { utilService } from '../../../services/util.service.js'
 
 export const emailService = {
     query,
+    changeEmailStatus,
     // getCurrencySymbol,
     // getBookById,
     // addReview,
@@ -28,6 +29,18 @@ function query(filterBy) {
         return Promise.resolve(emailsToShow);
     }
     return Promise.resolve(gEmails);
+}
+
+function changeEmailStatus(emailId, status) {
+    const emailIdx = gEmails.findIndex(currEmail => currEmail.id === emailId)
+    let email = gEmails[emailIdx]
+    //toggle status:
+    if (email.status === status) {
+        email.status = ''
+    }else {
+        email.status = status
+    }
+    return Promise.resolve()
 }
 
 function getCurrencySymbol(currencyCode) {

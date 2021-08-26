@@ -34,3 +34,15 @@
 .fas.fa-user::before {
     content: "\f007";
 }
+.fas.fa-trash::before {
+    content: "\f1f8";
+}
+.fas.fa-star::before {
+    content: "\f005";
+}
+/* .fas.fa-user::before {
+    content: "\f007";
+}
+.fas.fa-user::before {
+    content: "\f007";
+} */

@@ -26,6 +26,14 @@ export class EmailApp extends React.Component {
         this.setState({ filterBy }, this.loadEmails)//2nd arg of setState is a cb function that activates AFTER setState was done 
     }
 
+    onChangeEmailStatus = (emailId, status) => {
+        console.log(emailId, status)
+emailService.changeEmailStatus(emailId, status)
+.then(
+    this.loadEmails
+);
+    }
+
 
 
     render() {
@@ -35,7 +43,7 @@ export class EmailApp extends React.Component {
 
                 {/* {!selectedBook && <React.Fragment></React.Fragment> */}
                 <EmailFilter onSetFilter={this.onSetFilter} />
-                <EmailList emails={emails} />
+                <EmailList emails={emails} onChangeEmailStatus = {this.onChangeEmailStatus}/>
                 {/* {selectedBook && <BookDetails book={selectedBook} onGoBack={() => this.onSelectBook(null)} />} */}
 
 

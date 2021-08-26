@@ -20,10 +20,10 @@ export class EmailFilter extends React.Component {
         return (
             <section className="email-side-filter">
                     <button value = "inbox" onClick = {this.onChooseFilter}>Inbox</button>
-                    <button>Starred</button>
+                    <button value = "starred" onClick = {this.onChooseFilter}>Starred</button>
                     <button value = "sent" onClick = {this.onChooseFilter}>Sent Mail</button>
-                    <button>Drafts</button>
-                    <button>Trash</button>
+                    <button value = "draft" onClick = {this.onChooseFilter}>Drafts</button>
+                    <button value = "trash" onClick = {this.onChooseFilter}>Trash</button>
             </section >
         )
 
