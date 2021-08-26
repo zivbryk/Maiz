@@ -1,10 +1,16 @@
-const { Link } = ReactRouterDOM
+import { NoteTxt } from './note-txt.jsx'
+import { NoteTodos } from './note-todos.jsx'
+import { NoteImg } from './note-img.jsx'
+import { NoteVideo } from './note-video.jsx'
 
 export function NotePreview({ note }) {
+
     return (
         <article className="note-preview">
-            <h4>Note id - {note.id}</h4>
-            <h4>Note type - {note.type}</h4>
+            {note.type === "note-txt" && <NoteTxt note={note} />}
+            {note.type === "note-todos" && <NoteTodos note={note} />}
+            {note.type === "note-img" && <NoteImg note={note} />}
+            {note.type === "note-video" && <NoteVideo note={note} />}
         </article>
     )
 }

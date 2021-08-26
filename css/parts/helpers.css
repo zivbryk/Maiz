@@ -35,3 +35,6 @@
 .clean-list {
     list-style: none;
 }
+.wrap {
+    flex-wrap: wrap;
+}

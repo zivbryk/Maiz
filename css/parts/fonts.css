@@ -46,3 +46,7 @@
 .fas.fa-user::before {
     content: "\f007";
 } */
+
+.fas.fa-search::before {
+    content: "\f002";
+}

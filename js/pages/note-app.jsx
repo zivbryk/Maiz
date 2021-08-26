@@ -1,5 +1,6 @@
 import { noteService } from '../apps/keep/services/note-service.js'
-import { NoteList } from '../apps/keep/cmps/note-list.jsx';
+import { NoteList } from '../apps/keep/cmps/note-list.jsx'
+import { SearchBar } from '../cmps/search-bar.jsx'
 
 export class NoteApp extends React.Component {
     state = {
@@ -31,9 +32,9 @@ export class NoteApp extends React.Component {
     render() {
         const { notes } = this.state
         return (
-            <section className="note-app">
+            <section className="note-app flex flex-column align-center">
                 <h1>Keeper</h1>
-                {/* {JSON.stringify(notes)} */}
+                <SearchBar />
                 <NoteList notes={notes} />
                 {/* <CarList cars={this.carsToDisplay} onSelectCar={this.onSelectCar} /> */}
             </section>
