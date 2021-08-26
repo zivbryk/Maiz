@@ -17,17 +17,24 @@ var gNotes
 _createNotes();
 
 function query(filterBy) {
-    // if (filterBy) {
-    //     let { vendor, minSpeed, maxSpeed } = filterBy
-    //     maxSpeed = maxSpeed ? maxSpeed : Infinity
-    //     minSpeed = minSpeed ? minSpeed : 0
-    //     const carsToShow = gCars.filter(car => {
-    //         return car.vendor.includes(vendor) &&
-    //             car.speed >= minSpeed &&
-    //             car.speed <= maxSpeed
-    //     })
-    //     return Promise.resolve(carsToShow)
-    // }
+    if (filterBy) {
+        let { bookPriceRange, bookTitle } = filterBy;
+        bookPriceRange = bookPriceRange ? bookPriceRange : Infinity;
+        const booksToShow = gBooks.filter(book => book.title.includes(bookTitle.toLowerCase()) && book.listPrice.amount <= bookPriceRange)
+        return Promise.resolve(booksToShow);
+    }
+    return Promise.resolve(gBooks)
+}
+
+function query(filterBy) {
+    if (filterBy) {
+        let { inputTxt } = filterBy;
+        const notesToShow = gNotes.filter(note => note.info.txt.includes(inputTxt.toLowerCase()) ||
+            note.info.title.includes(inputTxt.toLowerCase()) ||
+            note.info.label.includes(inputTxt.toLowerCase()) ||
+            note.info.todos.some(todo => todo.txt.includes(inputTxt.toLowerCase())))
+        return Promise.resolve(notesToShow);
+    }
     return Promise.resolve(gNotes)
 }
 
@@ -38,6 +45,15 @@ function _createNotes() {
         _saveNotesToStorage();
     }
 }
+
+// function addNote(noteToEdit) {
+//     var bookIdx = gBooks.findIndex(function (book) {
+//         return book.id === bookToEdit.id;
+//     })
+//     gBooks[bookIdx].reviews.unshift({ id: review.id, name: review.name, rate: review.rate, txt: review.txt, date: review.date })
+//     return Promise.resolve()
+// }
+
 
 function _saveNotesToStorage() {
     storageService.saveToStorage(KEY, gNotes)
