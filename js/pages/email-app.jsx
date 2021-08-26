@@ -1,6 +1,7 @@
 import { emailService } from '../apps/mail/services/email-service.js';
 import { EmailList } from '../apps/mail/cmps/email-list.jsx'
 import { EmailFilter } from '../apps/mail/cmps/mail-filter.jsx'
+// import composeImg from '../../assets/img/compose.png'
 // import { BookDetails } from './BookDetails.jsx'
 
 
@@ -42,6 +43,8 @@ emailService.changeEmailStatus(emailId, status)
             <section className="email-app">
 
                 {/* {!selectedBook && <React.Fragment></React.Fragment> */}
+                {/* <img src= {composeImg} alt="" /> */}
+                <button className="compose-email"> Compose</button>
                 <EmailFilter onSetFilter={this.onSetFilter} />
                 <EmailList emails={emails} onChangeEmailStatus = {this.onChangeEmailStatus}/>
                 {/* {selectedBook && <BookDetails book={selectedBook} onGoBack={() => this.onSelectBook(null)} />} */}
