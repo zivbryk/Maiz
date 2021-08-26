@@ -1,0 +1,11 @@
+.email-compose {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    background-color: rgba(240, 234, 227, 0.507);
+ }
+
+ .email-compose>* {
+     display: flex;
+     flex-direction: column;
+ }
