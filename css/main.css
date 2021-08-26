@@ -7,3 +7,7 @@
 @import '../css/apps/keeper/note-list.css';
 @import '../css/cmps/search-filter.css';
 @import '../css/apps/keeper/note-todos.css';
+@import '../css/apps/zmail/mail-preview.css';
+@import '../css/apps/zmail/mail-app.css';
+@import '../css/apps/zmail/mail-filter.css';
+@import '../css/apps/zmail/mail-compose.css';

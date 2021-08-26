@@ -6,11 +6,6 @@ export const emailService = {
     query,
     changeEmailStatus,
     addEmail,
-    // getCurrencySymbol,
-    // getBookById,
-    // addReview,
-    // removeReview,
-    // saveBook,
     // loggedinUser,
 }
 
@@ -36,12 +31,21 @@ function changeEmailStatus(emailId, status) {
     const emailIdx = gEmails.findIndex(currEmail => currEmail.id === emailId)
     let email = gEmails[emailIdx]
     //toggle status:
-    if (email.status === status) {
-        email.status = ''
+    if (email.status === 'trash' && status === 'trash') {
+        removeEmail(emailId)
     }else {
         email.status = status
     }
+    _saveEmailsToStorage();
     return Promise.resolve()
+}
+
+function removeEmail(emailId) {
+    const emailIdx = gEmails.findIndex(currEmail => currEmail.id === emailId)
+    // let email = gEmails[emailIdx]
+    gEmails.splice(emailIdx, 1)
+    _saveEmailsToStorage();
+
 }
 
 // function saveBook(book) {
@@ -90,6 +94,7 @@ function addEmail(status, to, subject, body) {
      }
 
     gEmails.push(emailToAdd)
+    _saveEmailsToStorage();
     return Promise.resolve()
 }
 

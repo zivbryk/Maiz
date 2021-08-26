@@ -69,13 +69,9 @@ export class EmailCompose extends React.Component {
         />
 
         {/* <label htmlFor='email-body'> </label> */}
-        <input
-          name='body'
-          id='email-body'
-          type='text'
-          value={body}
-          onChange={this.handleChange}
-        />
+        <textarea name='body'
+          id='email-body' cols="30" rows="10" value={body}
+          onChange={this.handleChange}></textarea>
 
         <button hidden></button>
         </form>
