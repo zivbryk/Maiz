@@ -1,6 +1,7 @@
 import { noteService } from '../apps/keep/services/note-service.js'
 import { NoteList } from '../apps/keep/cmps/note-list.jsx'
 import { SearchFilter } from '../cmps/search-filter.jsx'
+import { NoteAdd } from '../apps/keep/cmps/note-add.jsx'
 import { NotePreview } from '../apps/keep/cmps/note-preview.jsx';
 import { NoteDetails } from '../apps/keep/cmps/note-details.jsx';
 
@@ -47,6 +48,7 @@ export class NoteApp extends React.Component {
                 <h1>Keeper</h1>
 
                 <section className="filter-and-list flex flex-column align-center">
+                    <NoteAdd />
                     <SearchFilter onSetFilter={this.onSetFilter} />
                     <NoteList notes={notes}
                         onToggleTodoStrike={this.onToggleTodoStrike}

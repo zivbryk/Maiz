@@ -1,39 +1,30 @@
-.search-filter {
-    width: 400px;
+/* NOTE ADD */
+
+.note-add {
+    width: 700px;
     border: none;
     border-radius: 0.7rem;
-    padding: 5px;
+    padding: 20px 5px;
     background-color: #F1F3F4;
     margin-bottom: 20px;
 }
 
-.search-input {
-    padding: 11px, 0px;
+.add-note-input {
     border: none;
     background-color: transparent;
     font-size: 1.2rem;
     margin-inline-start: 30px;
-    color: #5F6368;
 }
 
-.search-input:focus {
+.add-note-input:focus {
     outline-width: 0;
 }
 
-.fa-search {
-    font-size: 1.5rem;
-    color: #5F6368;
-}
-
-.search-btn {
+.add-note-btn {
     border: none;
     cursor: pointer;
     background-color: transparent;
     padding: 10px;
     border-radius: 50%;
     margin-inline-start: 10px;
-}
-
-.search-btn:hover {
-    background-color: #dbdfe0;
 }

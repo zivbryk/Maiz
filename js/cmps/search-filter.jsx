@@ -23,7 +23,7 @@ export class SearchFilter extends React.Component {
         return (
             <div className="search-filter flex align-center" onSubmit={this.onFilter}>
                 <div>
-                    <form className="search-form" action="">
+                    <form className="search-form">
                         <button className="search-btn">
                             <span className="fas fa-search"></span>
                         </button>
