@@ -4,9 +4,10 @@ import { notes } from '../data/notes.js'
 
 export const noteService = {
     query,
+    getNoteById,
+    toggleTodoStrike,
+    deleteNote
     // saveCar,
-    // deleteCar,
-    // getCarById,
     // getNextCarId
 }
 
@@ -28,8 +29,8 @@ function query(filterBy) {
 
 function query(filterBy) {
     if (filterBy) {
-        let { inputTxt } = filterBy;
-        const searchRex = new RegExp(inputTxt, 'i')
+        var { txt } = filterBy;
+        const searchRex = new RegExp(txt, 'i')
         //const notesToShow = gNotes.filter(note => note.info.txt.includes(inputTxt.toLowerCase()) ||
         // const notesToShow = gNotes.filter(note => searchRex.test(note.info.txt) ||
         //     note.info.title.includes(inputTxt.toLowerCase()) ||
@@ -66,6 +67,31 @@ function _createNotes() {
 //     return Promise.resolve()
 // }
 
+function getNoteById(noteId) {
+    var note = gNotes.find(note => noteId === note.id)
+    return Promise.resolve(note)
+}
+
+function toggleTodoStrike(idx, noteId) {
+    getNoteById(noteId)
+        .then(note => {
+            note.info.todos[idx].doneAt ?
+                note.info.todos[idx].doneAt = null :
+                note.info.todos[idx].doneAt = Date.now()
+            console.log(idx, note.info.todos[idx].doneAt)
+        })
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function deleteNote(noteId) {
+    var noteIdx = gNotes.findIndex(function (note) {
+        return noteId === note.id
+    })
+    gNotes.splice(noteIdx, 1)
+    _saveNotesToStorage();
+    return Promise.resolve()
+}
 
 function _saveNotesToStorage() {
     storageService.saveToStorage(KEY, gNotes)
