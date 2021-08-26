@@ -52,13 +52,6 @@ emailService.addEmail(status, to, subject, body)
     );
     this.setState({compose: false})
     }
-    // onSaveDraft = () => {
-
-    // }
-
-
-
-
 
     render() {
         const { emails, compose } = this.state
