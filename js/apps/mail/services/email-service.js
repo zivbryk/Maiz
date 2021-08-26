@@ -5,6 +5,7 @@ import { utilService } from '../../../services/util.service.js'
 export const emailService = {
     query,
     changeEmailStatus,
+    addEmail,
     // getCurrencySymbol,
     // getBookById,
     // addReview,
@@ -43,48 +44,29 @@ function changeEmailStatus(emailId, status) {
     return Promise.resolve()
 }
 
-function getCurrencySymbol(currencyCode) {
-    // const { book } = this.props
-    // const currencyCode = book.listPrice.currencyCode;
-    switch (currencyCode) {
-        case 'EUR':
-            return '€';
-            return Promise.resolve('€')
-            break;
-        case 'ILS':
-            return '₪';
-            return Promise.resolve('₪')
-            break;
-        case 'USD':
-            return '$';
-            return Promise.resolve('$')
-            break;
-    }
-}
+// function saveBook(book) {
 
-function saveBook(book) {
+//     if (book.id) {
+//         const bookIdx = gBooks.findIndex(currBook => currBook.id === book.id)
+//         gBooks[bookIdx] = book
+//         return Promise.resolve(gBooks[bookIdx])
+//     }
 
-    if (book.id) {
-        const bookIdx = gBooks.findIndex(currBook => currBook.id === book.id)
-        gBooks[bookIdx] = book
-        return Promise.resolve(gBooks[bookIdx])
-    }
+// }
 
-}
+// function removeReview(bookId, reviewId) {
+//     const bookIdx = gBooks.findIndex(book => book.id === bookId)
+//     const reviewIdx = gBooks[bookIdx].reviews.findIndex(review => review.id === reviewId);
+//     gBooks[bookIdx].reviews.splice(reviewIdx, 1);
+//     return Promise.resolve(gBooks[bookIdx]);
+// }
 
-function removeReview(bookId, reviewId) {
-    const bookIdx = gBooks.findIndex(book => book.id === bookId)
-    const reviewIdx = gBooks[bookIdx].reviews.findIndex(review => review.id === reviewId);
-    gBooks[bookIdx].reviews.splice(reviewIdx, 1);
-    return Promise.resolve(gBooks[bookIdx]);
-}
-
-function getBookById(bookId) {
-    var book = gBooks.find(function (book) {
-        return bookId === book.id
-    })
-    return Promise.resolve(book)
-}
+// function getBookById(bookId) {
+//     var book = gBooks.find(function (book) {
+//         return bookId === book.id
+//     })
+//     return Promise.resolve(book)
+// }
 
 function _createEmails() {
     gEmails = storageService.loadFromStorage(KEY)
@@ -94,18 +76,35 @@ function _createEmails() {
     }
 }
 
-function _saveEmailsToStorage() {
-    storageService.saveToStorage(KEY, gEmails)
+
+
+function addEmail(status, to, subject, body) {
+    const emailToAdd = { 
+        id: utilService.makeId(4),
+        status: status,
+        subject: subject,
+        body: body,
+        isRead: false,
+        sentAt: Date.now(),
+        to: to,
+     }
+
+    gEmails.push(emailToAdd)
+    return Promise.resolve()
 }
 
-function addReview(book, review) {
-    const reviewToAdd = { ...review, id: utilService.makeId() }
-    if (book.reviews) {
-        book.reviews.push(reviewToAdd)
-    } else {
-        book.reviews = [reviewToAdd]
-    }
-    _saveBooksToStorage();
-    return Promise.resolve(book);
+// function addReview(book, review) {
+//     const reviewToAdd = { ...review, id: utilService.makeId() }
+//     if (book.reviews) {
+//         book.reviews.push(reviewToAdd)
+//     } else {
+//         book.reviews = [reviewToAdd]
+//     }
+//     _saveBooksToStorage();
+//     return Promise.resolve(book);
+// }
+
+function _saveEmailsToStorage() {
+    storageService.saveToStorage(KEY, gEmails)
 }
 

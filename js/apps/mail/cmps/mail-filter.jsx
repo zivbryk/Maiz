@@ -7,6 +7,12 @@ export class EmailFilter extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.setState(prevState => (({...prevState, filterBy: {...prevState.filterBy, emailStatus: 'inbox'}})), () => {
+            this.props.onSetFilter(this.state.filterBy)
+        })
+    }
+
     onChooseFilter = (ev) => {
         const value = ev.target.value;
         this.setState(prevState => (({...prevState, filterBy: {...prevState.filterBy, emailStatus: value}})), () => {

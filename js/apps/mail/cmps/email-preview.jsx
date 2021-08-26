@@ -3,20 +3,35 @@ const { Link } = ReactRouterDOM
 export function EmailPreview({ email, onChangeEmailStatus }) {
 
     return (
-        <section className="email-preview-line ">
+        <React.Fragment > 
+            <td>
             {/* <button className="email-list-btn fas fa-book-open"></button>  */}
-            <button className="email-list-btn fas fa-star" onClick={() => onChangeEmailStatus(email.id,'starred')}></button> 
-                   <Link to={`/email/${email.id}`}>
-           
-                       < article className="email-preview" >
-                           <h2>{email.subject}</h2>
-                       </article >
-           
-     </Link >
-            <button className="email-list-hover-btn fas fa-trash" onClick={() => onChangeEmailStatus(email.id,'trash')}></button>
-            {/* <button className="email-list-hover-btn fas fa-book-open"></button>  */}
+            </td>
 
-        </section>
+            <td> 
+            <button className="email-list-btn fas fa-star" onClick={() => onChangeEmailStatus(email.id,'starred')}></button> 
+            </td>
+
+            <td>
+        <Link to={`/email/${email.id}`}>     
+                           <h2>{email.subject}</h2>
+        </Link >
+            </td>
+
+            <td>
+        <Link to={`/email/${email.id}`}>
+                           <h3>{email.body.slice(0,25)}...</h3>
+        </Link >
+            </td>
+            <td>
+            <button className="email-list-hover-btn fas fa-trash" onClick={() => onChangeEmailStatus(email.id,'trash')}></button>
+            </td>
+
+            <td>
+            <h3>{new Date(email.sentAt).toLocaleString()}</h3>
+            </td>
+
+            </React.Fragment>
 
     )
 }
