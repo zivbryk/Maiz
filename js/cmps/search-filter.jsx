@@ -9,11 +9,14 @@ export class SearchFilter extends React.Component {
         // console.log(ev.target.value)
         const field = ev.target.name
         const value = ev.target.type === 'number' ? + ev.target.value : ev.target.value
-        this.setState(prevState => ({ ...prevState, filterBy: { ...prevState.filterBy, [field]: value } }))
+        this.setState(prevState => ({ ...prevState, filterBy: { ...prevState.filterBy, [field]: value } }), () => {
+            this.props.onSetFilter(this.state.filterBy)
+        })
     }
 
-    onFilter = () => {
-        //
+    onFilter = (ev) => {
+        ev.preventDefault()
+        console.log('filtering');
     }
     render() {
         const { txt } = this.state.filterBy

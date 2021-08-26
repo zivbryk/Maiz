@@ -1,6 +1,6 @@
-const { Link, NavLink } = ReactRouterDOM
+const { Link, NavLink, withRouter } = ReactRouterDOM
 
-export function AppHeader() {
+export function _AppHeader() {
     return (
         <section className="app-header flex space-between align-center">
             <div className="logo-and-user flex space-between align-center">
@@ -28,3 +28,5 @@ export function AppHeader() {
         </section>
     )
 }
+
+export const AppHeader = withRouter(_AppHeader)

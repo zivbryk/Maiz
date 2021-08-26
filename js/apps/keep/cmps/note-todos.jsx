@@ -6,17 +6,9 @@ export class NoteTodos extends React.Component {
         //
     }
 
-    onToggleTodo = (idx, noteId) => { //move to note app
-        this.props.note.info.todos[idx].doneAt ?
-            this.props.note.info.todos[idx].doneAt = null :
-            this.props.note.info.todos[idx].doneAt = Date.now()
-
-        console.log(idx, this.props.note.info.todos[idx].doneAt);
-        this.setState() //find note by id and change its todo[idx]
-    }
 
     render() {
-        const { note } = this.props
+        const { note, onToggleTodoStrike } = this.props
 
         return (
             <article className="note-todos">
@@ -31,7 +23,8 @@ export class NoteTodos extends React.Component {
                                     id={idx}
                                     name="note"
                                     value=""
-                                    onChange={() => this.onToggleTodo(idx, note.id)} />
+                                    // {note.info.todos[idx].doneAt && checked}
+                                    onChange={() => onToggleTodoStrike(idx, note.id)} />
                                 <label className={note.info.todos[idx].doneAt && "strike-through"} htmlFor={idx}>{todo.txt}</label>
                             </div>
                         )

@@ -2,14 +2,15 @@ import { NoteTxt } from './note-txt.jsx'
 import { NoteTodos } from './note-todos.jsx'
 import { NoteImg } from './note-img.jsx'
 import { NoteVideo } from './note-video.jsx'
+import { NoteActions } from './note-actions.jsx'
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onToggleTodoStrike, onSelectNote }) {
     function getCmp() {
         switch (note.type) {
             case "note-txt":
                 return <NoteTxt note={note} />
             case "note-todos":
-                return <NoteTodos note={note} />
+                return <NoteTodos note={note} onToggleTodoStrike={onToggleTodoStrike} />
             case "note-img":
                 return <NoteImg note={note} />
             case "note-video":
@@ -19,12 +20,9 @@ export function NotePreview({ note }) {
     }
 
     return (
-        <article className="note-preview">
+        <article className="note-preview" onClick={() => { onSelectNote(note) }}>
             {getCmp()}
-            {/* {note.type === "note-txt" && <NoteTxt note={note} />}
-            {note.type === "note-todos" && <NoteTodos note={note} />}
-            {note.type === "note-img" && <NoteImg note={note} />}
-            {note.type === "note-video" && <NoteVideo note={note} />} */}
+            <NoteActions />
         </article>
     )
 }
