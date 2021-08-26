@@ -5,6 +5,7 @@ import { AppHome } from './js/pages/app-home.jsx'
 import { Mbooks } from './js/pages/mbooks.jsx'
 import { NoteApp } from './js/pages/note-app.jsx'
 import { EmailApp } from './js/pages/email-app.jsx'
+import { EmailDetails } from './js/apps/mail/pages/mail-details.jsx'
 import { NoteDetails } from './js/apps/keep/cmps/note-details.jsx'
 
 
@@ -17,6 +18,7 @@ export function App() {
             </header>
             <main className="app">
                 <Switch>
+                    <Route path="/zmail/:emailId" component={EmailDetails} />
                     <Route path="/keeper/:noteId" component={NoteDetails} />
                     <Route path="/mbooks" component={Mbooks} />
                     <Route path="/zmail" component={EmailApp} />

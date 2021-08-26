@@ -7,3 +7,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.compose-email-btn {
+display: flex;
+align-items: center;
+border: none;
+background-color: inherit;
+}

@@ -1,5 +1,4 @@
 
-const { Link, NavLink } = ReactRouterDOM
 
 export class EmailFilter extends React.Component {
 
@@ -27,6 +26,7 @@ export class EmailFilter extends React.Component {
         // const { emailStatus } = this.state.filterBy;
         return (
             <section className="email-side-filter">
+                
                     <button value = "inbox" onClick = {this.onChooseFilter}>Inbox</button>
                     <button value = "starred" onClick = {this.onChooseFilter}>Starred</button>
                     <button value = "sent" onClick = {this.onChooseFilter}>Sent Mail</button>
