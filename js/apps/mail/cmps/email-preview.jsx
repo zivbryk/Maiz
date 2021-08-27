@@ -1,6 +1,6 @@
 const { Link } = ReactRouterDOM
 
-export function EmailPreview({ email, onChangeEmailStatus }) {
+export function EmailPreview({ email, onChangeEmailStatus, onChangeEmailReadStatus }) {
 
     return (
         <React.Fragment > 
@@ -13,13 +13,13 @@ export function EmailPreview({ email, onChangeEmailStatus }) {
             </td>
 
             <td>
-        <Link to={`/zmail/${email.id}`}>     
+        <Link to={`/zmail/${email.id}`} onClick = {() => onChangeEmailReadStatus(email.id, true)}>     
                            <h2>{email.subject}</h2>
         </Link >
             </td>
 
             <td>
-        <Link to={`/zmail/${email.id}`}>
+        <Link to={`/zmail/${email.id}`} onClick = {() => onChangeEmailReadStatus(email.id, true)}>
                            <h3>{email.body.slice(0,25)}...</h3>
         </Link >
             </td>

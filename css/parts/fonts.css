@@ -59,4 +59,11 @@
     content: "\f14a";
 }
 
+/* AFTER! */
+.fas.fa-caret-down::before {
+    content: "\f0d7";
+}
+
+
+
 
