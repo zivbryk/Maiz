@@ -1,4 +1,4 @@
-// import { utilService } from '../../../services/util.service.js'
+import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/storage.service.js'
 import { notes } from '../data/notes.js'
 
@@ -6,7 +6,8 @@ export const noteService = {
     query,
     getNoteById,
     toggleTodoStrike,
-    RemoveNote
+    RemoveNote,
+    addNote
     // saveCar,
     // getNextCarId
 }
@@ -57,6 +58,30 @@ function _createNotes() {
         gNotes = notes;
         _saveNotesToStorage();
     }
+}
+
+
+function addNote(noteType, NoteInfo) {
+    var noteToAdd
+    switch (noteType) {
+        case 'note-txt':
+            noteToAdd = {
+                id: utilService.makeId(),
+                type: noteType,
+                isPnned: true,
+                info: {
+                    header: NoteInfo.header,
+                    body: NoteInfo.body
+                }
+            }
+            break;
+        default:
+            break;
+    }
+
+    gNotes.push(noteToAdd)
+    _saveNotesToStorage()
+    return Promise.resolve()
 }
 
 // function addNote(noteToEdit) {

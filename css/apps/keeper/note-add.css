@@ -1,19 +1,19 @@
 /* NOTE ADD */
 
 .note-add {
-    width: 700px;
     border: none;
-    border-radius: 0.7rem;
-    padding: 20px 5px;
-    background-color: #F1F3F4;
+    padding: 2px 20px;
     margin-bottom: 20px;
+    border-radius: 0.7rem;
+    background-color: #F1F3F4;
 }
 
 .add-note-input {
     border: none;
     background-color: transparent;
     font-size: 1.2rem;
-    margin-inline-start: 30px;
+    color: #5F6368;
+    padding: 16px 0px;
 }
 
 .add-note-input:focus {
@@ -27,4 +27,56 @@
     padding: 10px;
     border-radius: 50%;
     margin-inline-start: 10px;
+    font-size: 1.5rem;
+    color: #5F6368;
+}
+
+.add-note-btn:hover {
+    background-color: #dbdfe0;
+}
+
+.note-container {
+    width: 600px;
+}
+
+.default-note-form {
+    font-size: 1rem;
+    padding: 5px 30px;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.default-note-form:first-child {
+    font-size: 0.8rem;
+}
+
+.new-note-action-btns {
+    margin: 10px 20px;
+}
+
+.txt-input-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.txt-input-body {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.note-color-btn {
+    position: relative;
+}
+
+input.color-input {
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
 }

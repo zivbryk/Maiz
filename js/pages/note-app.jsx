@@ -24,10 +24,15 @@ export class NoteApp extends React.Component {
         });
     }
 
+    onAddNote = (noteType, info) => {
+        noteService.addNote(noteType, info)
+            .then(this.loadNotes)
+    }
+
     onSetFilter = (filterBy) => {
-        console.log('from note app:', filterBy);
+        // console.log('from note app:', filterBy);
         this.setState({ filterBy }, this.loadNotes);
-    };
+    }
 
     onToggleTodoStrike = (idx, noteId, ev) => {
         ev.stopPropagation()
@@ -45,10 +50,9 @@ export class NoteApp extends React.Component {
 
         return (
             <section className="note-app flex flex-column align-center">
-                <h1>Keeper</h1>
 
                 <section className="filter-and-list flex flex-column align-center">
-                    <NoteAdd />
+                    <NoteAdd onAddNote={this.onAddNote} />
                     <SearchFilter onSetFilter={this.onSetFilter} />
                     <NoteList notes={notes}
                         onToggleTodoStrike={this.onToggleTodoStrike}
