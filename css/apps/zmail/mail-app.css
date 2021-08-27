@@ -35,3 +35,8 @@ font-size: 1.5rem;
 .read-unread-email-btn:hover {
     background-color: rgb(231, 231, 231);
 }
+
+.email-select-filters {
+    display: flex;
+    flex-direction: row;
+}

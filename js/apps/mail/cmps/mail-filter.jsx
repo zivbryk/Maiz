@@ -23,7 +23,7 @@ export class EmailFilter extends React.Component {
 
 
     render() {
-        // const { emailStatus } = this.state.filterBy;
+
         return (
             <section className="email-side-filter">
                 
@@ -32,7 +32,11 @@ export class EmailFilter extends React.Component {
                     <button value = "sent" onClick = {this.onChooseFilter}>Sent Mail</button>
                     <button value = "draft" onClick = {this.onChooseFilter}>Drafts</button>
                     <button value = "trash" onClick = {this.onChooseFilter}>Trash</button>
-                    {this.state.filterBy.emailStatus === 'trash' && <button className="clear-trash-btn" >Clear Trash</button>}
+                    {this.state.filterBy.emailStatus === 
+                    'trash' && 
+                    <button className="clear-trash-btn" onClick = {this.props.onClearTrash}>
+                        Clear Trash
+                        </button>}
             </section >
         )
 

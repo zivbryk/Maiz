@@ -7,7 +7,6 @@ export class EmailReadFilter extends React.Component {
         const value = ev.target.value
         this.setState(prevState => ({ ...prevState, readFilter: value }), () => {
             this.props.onSetReadFilter(this.state.readFilter)
-            console.log(this.state)
         })
     }
 
@@ -28,20 +27,6 @@ export class EmailReadFilter extends React.Component {
                     <option value="unread">Unread</option>
                 </select>
 
-                    {/* <form className="search-form" action="">
-                        <button className="search-btn">
-                            <span className="fas fa-search"></span>
-                        </button>
-
-                        <input
-                            className="search-input"
-                            type="search"
-                            name="txt"
-                            id="searchFilter"
-                            placeholder="Search"
-                            value={readFilter}
-                            onChange={this.handleChange} />
-                    </form> */}
                 </div>
             </div >
         )

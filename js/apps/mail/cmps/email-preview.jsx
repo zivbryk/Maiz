@@ -5,7 +5,8 @@ export function EmailPreview({ email, onChangeEmailStatus, onChangeEmailReadStat
     return (
         <React.Fragment > 
             <td>
-            {/* <button className="email-list-btn fas fa-book-open"></button>  */}
+            {email.isRead ?  <div className = "email-read fas fa-check-square"></div> : <div className = "email-unread far fa-square"></div>}
+           
             </td>
 
             <td> 
