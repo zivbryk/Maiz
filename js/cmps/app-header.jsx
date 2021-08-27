@@ -5,7 +5,10 @@ export function _AppHeader() {
         <section className="app-header flex space-between align-center">
             <div className="logo-and-user flex space-between align-center">
                 <Link to="/">
-                    <div className="header-logo">Maíz</div>
+                    <div className="header-logo">
+                    <img src="assets/img/corn4.png"/>
+                        Maíz
+                        </div>
                 </Link>
 
                 <div className="user-logo">
