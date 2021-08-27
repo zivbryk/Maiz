@@ -5,22 +5,25 @@ export const notes = [
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Do the Laundry" }
+        info: {
+            header: "Do the Laundry",
+            body: "do not use soap or detergents"
+        }
     }, {
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Plant Bananas!" }
+        info: { header: "Plant Bananas!" }
     }, {
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Buy Doron a Bday present" }
+        info: { header: "Buy Doron a Bday present" }
     }, {
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { header: "Fullstack Me Baby!" }
     },
     {
         id: utilService.makeId(),
@@ -50,12 +53,12 @@ export const notes = [
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { header: "Fullstack Me Baby!" }
     },
     {
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { header: "Fullstack Me Baby!" }
     }
 ]

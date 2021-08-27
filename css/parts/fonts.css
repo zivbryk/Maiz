@@ -7,8 +7,17 @@
     src: url(../../assets/fonts/Awesome/fa-solid-900.ttf);
 }
 
+@font-face {
+    font-family: Brands;
+    src: url(../../assets/fonts/Awesome/fa-brands-400.ttf);
+}
+
 .fas::before {
     font-family: Solids;
+}
+
+.fab::before {
+    font-family: Brands;
 }
 
 .fas.fa-home::before {
@@ -47,7 +56,7 @@
     content: "\f002";
 }
 
-.fas.fa-youtube::before {
+.fab.fa-youtube::before {
     content: "\f167";
 }
 
@@ -59,4 +68,6 @@
     content: "\f14a";
 }
 
-
+.fas.fa-palette::before {
+    content: "\f53f";
+}

@@ -6,7 +6,7 @@ import { NoteActions } from './note-actions.jsx'
 const { Link } = ReactRouterDOM
 
 export function NotePreview({ note, onToggleTodoStrike, onRemoveNote }) {
-    console.log('NotePreview props: ', onToggleTodoStrike);
+    // console.log('NotePreview props: ', onToggleTodoStrike);
     function getCmp() {
         switch (note.type) {
             case "note-txt":
