@@ -7,6 +7,9 @@ export const emailService = {
     changeEmailStatus,
     addEmail,
     getEmailById,
+    changeEmailReadStatus,
+    clearTrash,
+    progressEmailRead,
     // loggedinUser,
 }
 
@@ -18,14 +21,96 @@ var gEmails;
 
 _createEmails();
 
-function query(filterBy) {
+function query(filterBy, filterByTxt, filterByRead, sortBy) {
+    if (!filterBy) {
+        filterBy = {emailStatus: 'inbox'}
+    }
     if (filterBy) {
         let { emailStatus } = filterBy;
-        const emailsToShow = gEmails.filter(email => email.status === emailStatus)
-        // const booksToShow = gBooks.filter(book => book.title.includes(bookTitle.toLowerCase()) && book.listPrice.amount <= bookPriceRange)
-        return Promise.resolve(emailsToShow);
+        var emailsToShow = gEmails.filter(email => 
+            email.status === emailStatus //every email has emailStatus
+            )
+            
+        if (filterByTxt){
+            let { txt } = filterByTxt;
+            emailsToShow = gEmails.filter(email => 
+                email.subject.toLowerCase().includes(txt.toLowerCase()) 
+                || email.body.toLowerCase().includes(txt.toLowerCase()) 
+                )
+        } 
+        if (filterByRead){
+            let filter = filterByRead;
+           
+            switch (filter) {
+                case 'all':
+                    emailsToShow = gEmails.filter(email => 
+                        email.isRead || !email.isRead 
+                        )
+                break;
+                case 'read':
+                    emailsToShow = gEmails.filter(email => 
+                        email.isRead 
+                        )
+                break;
+                case 'unread':
+                    emailsToShow = gEmails.filter(email => 
+                        !email.isRead 
+                        )
+                break;
+            
+                default:
+                    emailsToShow = gEmails.filter(email => 
+                        email.isRead || !email.isRead 
+                        )
+                    break;
+            }
+        
+        } 
+        if(sortBy) {
+          switch (sortBy) {
+            case 'date':
+                  emailsToShow.sort(compareByDate)
+            break;
+            case 'abc':    
+                emailsToShow.sort(compareBySubject)
+            break;
+                      
+            default:
+                  emailsToShow.sort(compareByDate)
+            break;
+          }
+        }
+    
+    return Promise.resolve(emailsToShow);
     }
+
     return Promise.resolve(gEmails);
+}
+
+function compareByDate(a, b) {
+    const emailSortA = a.sentAt;
+    const emailSortB = b.sentAt;
+    let comparison = 0;
+    if (emailSortA > emailSortB) {
+      comparison = 1;
+    } else if (emailSortA < emailSortB) {
+      comparison = -1;
+    }
+    return comparison;
+
+}
+
+function compareBySubject(a, b) {
+    const emailSortA = a.subject.toLowerCase();
+    const emailSortB = b.subject.toLowerCase();
+    let comparison = 0;
+    if (emailSortA > emailSortB) {
+      comparison = 1;
+    } else if (emailSortA < emailSortB) {
+      comparison = -1;
+    }
+    return comparison;
+
 }
 
 function changeEmailStatus(emailId, status) {
@@ -41,30 +126,31 @@ function changeEmailStatus(emailId, status) {
     return Promise.resolve()
 }
 
+function changeEmailReadStatus(emailId, readStatus) { //change isRead status to true when opening email
+    const emailIdx = gEmails.findIndex(currEmail => currEmail.id === emailId)
+    let email = gEmails[emailIdx]
+    
+    email.isRead = readStatus
+    console.log(email)
+    
+    _saveEmailsToStorage();
+    return Promise.resolve()
+}
+
 function removeEmail(emailId) {
     const emailIdx = gEmails.findIndex(currEmail => currEmail.id === emailId)
-    // let email = gEmails[emailIdx]
     gEmails.splice(emailIdx, 1)
     _saveEmailsToStorage();
 
 }
 
-// function saveBook(book) {
-
-//     if (book.id) {
-//         const bookIdx = gBooks.findIndex(currBook => currBook.id === book.id)
-//         gBooks[bookIdx] = book
-//         return Promise.resolve(gBooks[bookIdx])
-//     }
-
-// }
-
-// function removeReview(bookId, reviewId) {
-//     const bookIdx = gBooks.findIndex(book => book.id === bookId)
-//     const reviewIdx = gBooks[bookIdx].reviews.findIndex(review => review.id === reviewId);
-//     gBooks[bookIdx].reviews.splice(reviewIdx, 1);
-//     return Promise.resolve(gBooks[bookIdx]);
-// }
+function clearTrash() {
+    const emailsInTrash = gEmails.filter(email => email.status === 'trash')
+    const emailsToRemove = emailsInTrash.map(email => email.id)
+    console.log(emailsToRemove)
+    emailsToRemove.forEach(id => removeEmail(id))
+    return Promise.resolve()
+}
 
 function getEmailById(emailId) {
     var email = gEmails.find(function (email) {
@@ -80,8 +166,6 @@ function _createEmails() {
         _saveEmailsToStorage();
     }
 }
-
-
 
 function addEmail(status, to, subject, body) {
     const emailToAdd = { 
@@ -99,16 +183,12 @@ function addEmail(status, to, subject, body) {
     return Promise.resolve()
 }
 
-// function addReview(book, review) {
-//     const reviewToAdd = { ...review, id: utilService.makeId() }
-//     if (book.reviews) {
-//         book.reviews.push(reviewToAdd)
-//     } else {
-//         book.reviews = [reviewToAdd]
-//     }
-//     _saveBooksToStorage();
-//     return Promise.resolve(book);
-// }
+function progressEmailRead() {//return a % value of read emails for progress bar
+    const readEmails = gEmails.filter(email => email.isRead)
+    // const unreadEmails = gEmails.filter(email => !email.isRead)
+    const progressBar = (readEmails.length/gEmails.length)*100
+    return Promise.resolve(progressBar)
+}
 
 function _saveEmailsToStorage() {
     storageService.saveToStorage(KEY, gEmails)

@@ -12,12 +12,21 @@
     src: url(../../assets/fonts/Awesome/fa-brands-400.ttf);
 }
 
+@font-face {
+    font-family: Regular;
+    src: url(../../assets/fonts/Awesome/fa-regular-400.ttf);
+}
+
 .fas::before {
     font-family: Solids;
 }
 
 .fab::before {
     font-family: Brands;
+}
+
+.far::before {
+    font-family: Regular;
 }
 
 .fas.fa-home::before {
@@ -70,4 +79,14 @@
 
 .fas.fa-palette::before {
     content: "\f53f";
+}
+
+.far.fa-square::before {
+    content: "\f0c8";
+}
+
+/* AFTER! */
+
+.fas.fa-caret-down::before {
+    content: "\f0d7";
 }

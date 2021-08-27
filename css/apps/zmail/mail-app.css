@@ -1,6 +1,14 @@
 .email-app {
+    margin: auto;
     display: flex;
+    flex-direction: column;
+    
+}
 
+.email-app-main {
+    
+    display: flex;
+    flex-direction: row;
 }
 
 .email-app-sidebar {
@@ -13,4 +21,22 @@ display: flex;
 align-items: center;
 border: none;
 background-color: inherit;
+cursor: pointer;
+font-size: 1.5rem;
+}
+
+.read-unread-email-btn {
+    border: none;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.read-unread-email-btn:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.email-select-filters {
+    display: flex;
+    flex-direction: row;
 }
