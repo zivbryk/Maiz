@@ -7,9 +7,8 @@ export const noteService = {
     getNoteById,
     toggleTodoStrike,
     RemoveNote,
-    addNote
-    // saveCar,
-    // getNextCarId
+    addNote,
+    saveNote
 }
 
 const KEY = 'notes';
@@ -174,6 +173,13 @@ function RemoveNote(noteId) {
     })
     gNotes.splice(noteIdx, 1)
     _saveNotesToStorage();
+    return Promise.resolve()
+}
+
+function saveNote(noteToEdit) {
+    var noteIdx = gNotes.findIndex(note => note.id === noteToEdit.id)
+    gNotes[noteIdx] = noteToEdit
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
