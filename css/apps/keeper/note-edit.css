@@ -10,3 +10,20 @@
     padding: 20px;
     text-align: center;
 }
+
+.img-inputs-container img {
+    width: 99%;
+}
+
+.edit-input {
+    font-size: 1.5rem;
+    margin: 5px;
+    outline-width: 0;
+    border: none;
+    color: #5F6368;
+    padding: 16px 0px;
+    text-align: center;
+    border-radius: 0.7rem;
+    margin: 10px;
+    box-shadow: 0px 0px 10px 0px;
+}

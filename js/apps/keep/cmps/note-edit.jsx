@@ -56,7 +56,7 @@ export class NoteEdit extends React.Component {
         switch (noteType) {
             case 'note-txt':
                 return (
-                    <form className="inputs-container flex flex-column align-center">
+                    <form className="txt-inputs-container flex flex-column align-center">
                         <input type="text"
                             name="header"
                             placeholder=""
@@ -73,16 +73,20 @@ export class NoteEdit extends React.Component {
 
             case 'note-img':
                 return (
-                    <form className="inputs-container flex flex-column align-center">
+                    <form className="img-inputs-container flex flex-column align-center">
                         <img src={note.info.url} />
 
-                        <input type="text"
+                        <input
+                            className="edit-input"
+                            type="text"
                             name="title"
                             placeholder=""
                             value={note.info.title}
                             onChange={this.handleInputChange} />
 
-                        <input type="text"
+                        <input
+                            className="edit-input"
+                            type="text"
                             name="url"
                             placeholder=""
                             value={note.info.url}

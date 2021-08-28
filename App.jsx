@@ -13,6 +13,7 @@ import { NoteEdit } from './js/apps/keep/cmps/note-edit.jsx'
 export function App() {
     return (
         <Router>
+
             <header>
                 <AppHeader />
             </header>
