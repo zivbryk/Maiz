@@ -186,7 +186,8 @@ function addEmail(status, to, subject, body) {
 function progressEmailRead() {//return a % value of read emails for progress bar
     const readEmails = gEmails.filter(email => email.isRead)
     // const unreadEmails = gEmails.filter(email => !email.isRead)
-    const progressBar = (readEmails.length/gEmails.length)*100
+    const progressBar = Math.floor((readEmails.length/gEmails.length)*100)
+    console.log('progress from service',progressBar)//works!
     return Promise.resolve(progressBar)
 }
 

@@ -1,19 +1,31 @@
 .email-app {
     margin: auto;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;  
 }
 
-.email-app-main {
-    
+.email-app-main { 
     display: flex;
     flex-direction: row;
+    margin: auto;
+
+}
+
+@media screen and (min-width: 1060px) {
+    .email-app-main { 
+        /* display: flex;
+        flex-direction: row; */
+        max-width: 1060px;
+
+    
+    }
+    
 }
 
 .email-app-sidebar {
     display: flex;
     flex-direction: column;
+    margin-right: 20px
 }
 
 .compose-email-btn {
@@ -39,4 +51,25 @@ font-size: 1.5rem;
 .email-select-filters {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
+
+.email-read-filter, .email-sort {
+    /* padding: 11px, 0px; */
+    /* height: 100%; */
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    /* margin-inline-start: 30px; */
+    color: #5F6368;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    display: flex;
+    
+}
+
+
+
+

@@ -55,10 +55,38 @@
 
 .fas.fa-trash::before {
     content: "\f1f8";
+    color: #303030;
+    font-size: 1.2rem;
+}
+
+.email-preview-btn.fas.fa-trash::before {
+    content: "\f1f8";
+    color: #555555a8;
+    font-size: 1.2rem;
 }
 
 .fas.fa-star::before {
     content: "\f005";
+    color: #303030;
+    font-size: 1.2rem;
+}
+
+.email-preview-btn.fas.fa-star::before {
+    content: "\f005";
+    color: #F9D532;
+    font-size: 1.2rem;
+}
+
+.far.fa-star::before {
+    content: "\f005";
+    color: #303030;
+    font-size: 1.2rem;
+}
+
+.email-preview-btn.far.fa-star::before {
+    content: "\f005";
+    color: #555555a8;
+    font-size: 1.2rem;
 }
 
 .fas.fa-search::before {
@@ -77,6 +105,12 @@
     content: "\f14a";
 }
 
+.email-preview-btn.fas.fa-check-square::before {
+    content: "\f14a";
+    color: #555555a8;
+    font-size: 1.2rem;
+}
+
 .fas.fa-palette::before {
     content: "\f53f";
 }
@@ -85,8 +119,44 @@
     content: "\f0c8";
 }
 
-/* AFTER! */
+.email-preview-btn.far.fa-square::before {
+    content: "\f0c8";
+    color: #555555a8;
+    font-size: 1.2rem;
+}
+
+.fas.fa-plus::before {
+    content: "\f067";
+    color: #41C9B8;
+    border: #41C9B8;
+    font-size: 3rem;
+    margin-right: 5px;
+}
+
+.fas.fa-inbox::before {
+    content: "\f01c";
+    color: #303030;
+    font-size: 1.2rem;
+}
+
+.fas.fa-paper-plane::before {
+    content: "\f1d8";
+    color: #303030;
+    font-size: 1.2rem;
+}
+
+.fab.fa-firstdraft::before {
+    content: "\f3a1";
+    color: #303030;
+    font-size: 1.2rem;
+}
 
 .fas.fa-caret-down::before {
     content: "\f0d7";
+}
+
+.fas.fa-times::before {
+    content: "\f00d";
+    font-size: 1.2rem;
+    color: #d8d8d8;
 }

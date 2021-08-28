@@ -16,3 +16,24 @@
 .email-side-filter>*:hover {
     background-color: rgb(196, 196, 196);
 }
+
+/* Container for skill bars */
+.container {
+    box-sizing:border-box;
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+  border-radius: 20px;
+}
+
+.skills {
+  text-align: center; /* Right-align text */
+  padding-top: 7px; /* Add top padding */
+  padding-bottom: 7px; /* Add bottom padding */
+  color: black; /* White text color */
+  cursor: unset;
+}
+
+.html { 
+    background-color: #42C8B7;
+    border-radius:20px;
+} 

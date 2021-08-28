@@ -7,9 +7,10 @@ export function EmailList({ emails, onChangeEmailStatus, onChangeEmailReadStatus
     function onHoverOut() {
         console.log('mouse leave')
     }
-    return <section className="email-list">
+    return (
+    <section className="email-list">
             
-<table>
+<table >
     <tbody>
 
         {emails.map(email =>
@@ -27,5 +28,6 @@ export function EmailList({ emails, onChangeEmailStatus, onChangeEmailReadStatus
 </table>
 
     </section>
+    )
 }
 

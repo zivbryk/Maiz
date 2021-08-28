@@ -5,6 +5,7 @@ import { EmailCompose } from '../apps/mail/cmps/email-compose.jsx'
 import { EmailSearchFilter } from '../apps/mail/cmps/email-search-filter.jsx'
 import { EmailReadFilter } from '../apps/mail/cmps/email-read-filter.jsx'
 import { EmailSort } from '../apps/mail/cmps/email-sort.jsx'
+import { Loading } from '../cmps/Loading.jsx'
 
 export class EmailApp extends React.Component {
     state = {
@@ -14,13 +15,16 @@ export class EmailApp extends React.Component {
         filterByRead: null,
         sortBy: null,
         compose: false,
-        progress: null,
-        
+        progress: 0,
+
     }
 
     componentDidMount() {
         this.loadEmails();
-       
+        this.loadProgress();
+
+
+
     }
 
     loadEmails = () => {
@@ -28,12 +32,16 @@ export class EmailApp extends React.Component {
             .then(emails => {
                 this.setState({ emails })
             });
+        console.log(this.state.emails.length, this.state.progress);
     };
 
-    loadProgress= () => {
+    loadProgress = () => {
+        // console.log('app before',this.state.progress);
         emailService.progressEmailRead()
-        .then(progress =>
-            {this.setState({ progress})})
+            .then(progress =>
+                // console.log('progress in then', progress)
+                this.setState({ progress: progress })
+            )
     }
 
     onSetFilter = (filterBy) => {
@@ -57,66 +65,69 @@ export class EmailApp extends React.Component {
         emailService.changeEmailStatus(emailId, status)
             .then(
                 this.loadEmails
-                );
+            );
     }
 
     onChangeEmailReadStatus = (emailId, readStatus) => {
         emailService.changeEmailReadStatus(emailId, readStatus)
             .then(
-                this.loadEmails
-                );
+                this.loadEmails,
+                this.loadProgress
+            );
     }
 
     onClearTrash = () => {
         emailService.clearTrash()
-        .then(
-            this.loadEmails
+            .then(
+                this.loadEmails
             );
     }
 
     onOpenCompose = () => {
-        this.setState({compose: true})
+        this.setState({ compose: true })
     }
-    
+
     onCloseCompose = () => {
-        this.setState({compose: false})
+        this.setState({ compose: false })
     }
 
     onSaveEmail = (status, to, subject, body) => {
-    emailService.addEmail(status, to, subject, body)
-    .then(
-    this.loadEmails
-    );
-    this.setState({compose: false})
+        emailService.addEmail(status, to, subject, body)
+            .then(
+                this.loadEmails
+            );
+        this.setState({ compose: false })
     }
 
     render() {
         const { emails, compose } = this.state
+        { !emails && <section className="loading"> <Loading /> </section> }
         return (
+
             <section className="email-app">
-                <EmailSearchFilter onSetTxtFilter = {this.onSetTxtFilter}/>
-               
-               <div className="email-select-filters">
-                <EmailReadFilter onSetReadFilter = {this.onSetReadFilter} />
-                <EmailSort onDateAlphaSort = {this.onDateAlphaSort} />
-                {/* <p className = "email-progress">You have read {this.state.progress}% of your Emails </p> */}
-               </div>
-               
+
+                <div className="email-select-filters">
+                    <EmailSearchFilter onSetTxtFilter={this.onSetTxtFilter} />
+                    <EmailReadFilter onSetReadFilter={this.onSetReadFilter} />
+                    <EmailSort onDateAlphaSort={this.onDateAlphaSort} />
+                    {/* <p className = "email-progress">You have read {this.state.progress}% of your Emails </p> */}
+                </div>
+
                 <section className="email-app-main">
-                <section className = "email-app-sidebar">
-                <button className="compose-email-btn" onClick = {() => this.onOpenCompose()}>
-                <img className = "email-compose-img" src= 'assets/img/compose.png' />
-                     Compose</button>
-                <EmailFilter onSetFilter={this.onSetFilter} onClearTrash = {this.onClearTrash}/>
-                
-                </section>
-                {compose && <EmailCompose onCloseCompose = {this.onCloseCompose} onSaveEmail = {this.onSaveEmail}/>}
-                <section className="email-app-board">
-                <EmailList emails={emails} onChangeEmailStatus = {this.onChangeEmailStatus} onChangeEmailReadStatus = {this.onChangeEmailReadStatus}/>
-                </section>
+                    <section className="email-app-sidebar">
+                        <button className="compose-email-btn" onClick={() => this.onOpenCompose()}> <span className="fas fa-plus"></span>
+                            {/* <img className="email-compose-img" src='assets/img/compose-site-col.png' /> */}
+                            Compose</button>
+                        <EmailFilter onSetFilter={this.onSetFilter} onClearTrash={this.onClearTrash} progress={this.state.progress} />
+
+                    </section>
+                    {compose && <EmailCompose onCloseCompose={this.onCloseCompose} onSaveEmail={this.onSaveEmail} />}
+                    <section className="email-app-board">
+                        <EmailList emails={emails} onChangeEmailStatus={this.onChangeEmailStatus} onChangeEmailReadStatus={this.onChangeEmailReadStatus} />
+                    </section>
 
                 </section>
-  
+
 
             </section>
         );
