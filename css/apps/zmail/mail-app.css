@@ -6,22 +6,99 @@
 
 .email-app-main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: auto;
 }
 
-@media screen and (min-width: 1060px) {
+.email-read-sort-div {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 630px) {
     .email-app-main {
-        /* display: flex;
-        flex-direction: row; */
-        max-width: 1060px;
+        max-width: 600px;
+    }
+    .email-select-filters {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 50px 0 30px;
+    }
+    .email-app-sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .email-side-filter {
+        display: flex;
+        flex-direction: row;
+    }
+    .email-side-filter>* {
+        display: flex;
+        flex-direction: row;
+        font-size: 1.5rem;
+        padding: 0px 10px;
+    }
+    .container {
+        width: 100px;
+        height: fit-content;
     }
 }
 
-.email-app-sidebar {
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px
+@media (min-width: 630px) {
+    .email-app-main {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+    }
+    .email-app-main {
+        max-width: 1060px;
+    }
+    .email-select-filters {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 50px 0 30px;
+    }
+    .email-app-sidebar {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px
+    }
+    .compose-email-btn::after {
+        content: "Compose";
+        color: #303030;
+    }
+    .inbox-folder::after {
+        content: "Inbox";
+        color: #303030;
+    }
+    .starred-folder::after {
+        content: "Starred";
+        color: #303030;
+    }
+    .sent-folder::after {
+        content: "Sent";
+        color: #303030;
+    }
+    .draft-folder::after {
+        content: "Draft";
+        color: #303030;
+    }
+    .trash-folder::after {
+        content: "Trash";
+        color: #303030;
+    }
+    .email-side-filter {
+        display: flex;
+        flex-direction: column;
+    }
+    .container {
+        width: 100%;
+        height: unset;
+    }
 }
 
 .compose-email-btn {
@@ -43,13 +120,6 @@
 
 .read-unread-email-btn:hover {
     background-color: rgb(231, 231, 231);
-}
-
-.email-select-filters {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 50px 0 30px;
 }
 
 .email-read-filter, .email-sort {

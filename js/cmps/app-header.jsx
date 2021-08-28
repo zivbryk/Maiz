@@ -1,6 +1,16 @@
 const { Link, NavLink, withRouter } = ReactRouterDOM
 
 export class AppHeader extends React.Component {
+    state = {
+        menuOpen: false,
+    }
+
+    toggleMenuOpen = () => {
+        const { menuOpen } = this.state
+        this.setState(prevState => ({ ...prevState, ['menuOpen']: !menuOpen }))
+
+    }
+
 
     render() {
 
@@ -18,17 +28,19 @@ export class AppHeader extends React.Component {
                         <span className="nav-icon fas fa-user"></span>
                     </div>
                 </div>
+                <div className="header-menu flex flex-row">
 
-                <nav className="header-nav flex">
-                    <NavLink exact to="/"><span className="nav-icon fas fa-home"></span></NavLink>
-                    <NavLink to="/keeper"><span className="nav-icon fas fa-sticky-note"></span></NavLink>
-                    <NavLink to="/zmail"><span className="nav-icon fas fa-envelope"></span></NavLink>
-                    <NavLink to="/mbooks"><span className="nav-icon fas fa-book-open"></span></NavLink>
+                    {this.state.menuOpen && <nav className="header-nav flex">
+                        <NavLink exact to="/"><span className="nav-icon fas fa-home"></span></NavLink>
+                        <NavLink to="/keeper"><span className="nav-icon fas fa-sticky-note"></span></NavLink>
+                        <NavLink to="/zmail"><span className="nav-icon fas fa-envelope"></span></NavLink>
+                        {/* <NavLink to="/mbooks"><span className="nav-icon fas fa-book-open"></span></NavLink> */}
 
-                </nav>
-                <Link to="/">
-                    <div className="header-grid"><span className="nav-icon fas fa-th"></span></div>
-                </Link>
+                    </nav>}
+
+                    <div className="header-grid" onClick={this.toggleMenuOpen}><span className="nav-icon fas fa-th"></span></div>
+                </div>
+
 
 
             </section>

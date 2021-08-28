@@ -22,9 +22,6 @@ export class EmailApp extends React.Component {
     componentDidMount() {
         this.loadEmails();
         this.loadProgress();
-
-
-
     }
 
     loadEmails = () => {
@@ -32,14 +29,12 @@ export class EmailApp extends React.Component {
             .then(emails => {
                 this.setState({ emails })
             });
-        console.log(this.state.emails.length, this.state.progress);
     };
 
     loadProgress = () => {
-        // console.log('app before',this.state.progress);
         emailService.progressEmailRead()
             .then(progress =>
-                // console.log('progress in then', progress)
+
                 this.setState({ progress: progress })
             )
     }
@@ -108,16 +103,18 @@ export class EmailApp extends React.Component {
 
                 <div className="email-select-filters">
                     <EmailSearchFilter onSetTxtFilter={this.onSetTxtFilter} />
-                    <EmailReadFilter onSetReadFilter={this.onSetReadFilter} />
-                    <EmailSort onDateAlphaSort={this.onDateAlphaSort} />
-                    {/* <p className = "email-progress">You have read {this.state.progress}% of your Emails </p> */}
+                    <div className="email-read-sort-div">
+                        <EmailReadFilter onSetReadFilter={this.onSetReadFilter} />
+                        <EmailSort onDateAlphaSort={this.onDateAlphaSort} />
+                    </div>
+
                 </div>
 
                 <section className="email-app-main">
                     <section className="email-app-sidebar">
                         <button className="compose-email-btn" onClick={() => this.onOpenCompose()}> <span className="fas fa-plus"></span>
                             {/* <img className="email-compose-img" src='assets/img/compose-site-col.png' /> */}
-                            Compose</button>
+                        </button>
                         <EmailFilter onSetFilter={this.onSetFilter} onClearTrash={this.onClearTrash} progress={this.state.progress} />
 
                     </section>
