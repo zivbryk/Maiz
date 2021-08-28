@@ -56,19 +56,26 @@ export class NoteEdit extends React.Component {
         switch (noteType) {
             case 'note-txt':
                 return (
-                    <form className="txt-inputs-container flex flex-column align-center">
-                        <input type="text"
+                    <form className="txt-inputs-container flex flex-column">
+                        <input
+                            className="edit-txt-header"
+                            type="text"
                             name="header"
                             placeholder=""
                             value={note.info.header}
                             onChange={this.handleInputChange} />
 
-                        <input type="text"
+                        <textarea
+                            rows='20'
+                            cols='1'
+                            className="edit-txt-body"
+                            type="text"
                             name="body"
                             placeholder=""
                             value={note.info.body}
                             onChange={this.handleInputChange} />
-                    </form>
+                        <textarea />
+                    </form >
                 )
 
             case 'note-img':
@@ -77,7 +84,7 @@ export class NoteEdit extends React.Component {
                         <img src={note.info.url} />
 
                         <input
-                            className="edit-input"
+                            className="edit-media-input"
                             type="text"
                             name="title"
                             placeholder=""
@@ -85,7 +92,7 @@ export class NoteEdit extends React.Component {
                             onChange={this.handleInputChange} />
 
                         <input
-                            className="edit-input"
+                            className="edit-media-input"
                             type="text"
                             name="url"
                             placeholder=""
