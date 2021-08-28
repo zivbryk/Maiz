@@ -113,7 +113,7 @@ export class EmailApp extends React.Component {
                 <section className="email-app-main">
                     <section className="email-app-sidebar">
                         <button className="compose-email-btn" onClick={() => this.onOpenCompose()}> <span className="fas fa-plus"></span>
-                            {/* <img className="email-compose-img" src='assets/img/compose-site-col.png' /> */}
+
                         </button>
                         <EmailFilter onSetFilter={this.onSetFilter} onClearTrash={this.onClearTrash} progress={this.state.progress} />
 

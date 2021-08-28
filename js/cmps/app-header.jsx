@@ -31,9 +31,9 @@ export class AppHeader extends React.Component {
                 <div className="header-menu flex flex-row">
 
                     {this.state.menuOpen && <nav className="header-nav flex">
-                        <NavLink exact to="/"><span className="nav-icon fas fa-home"></span></NavLink>
-                        <NavLink to="/keeper"><span className="nav-icon fas fa-sticky-note"></span></NavLink>
-                        <NavLink to="/zmail"><span className="nav-icon fas fa-envelope"></span></NavLink>
+                        <NavLink exact to="/"><span className="nav-icon fas fa-home" onClick={this.toggleMenuOpen}></span></NavLink>
+                        <NavLink to="/keeper"><span className="nav-icon fas fa-sticky-note" onClick={this.toggleMenuOpen}></span></NavLink>
+                        <NavLink to="/zmail"><span className="nav-icon fas fa-envelope" onClick={this.toggleMenuOpen}></span></NavLink>
                         {/* <NavLink to="/mbooks"><span className="nav-icon fas fa-book-open"></span></NavLink> */}
 
                     </nav>}
