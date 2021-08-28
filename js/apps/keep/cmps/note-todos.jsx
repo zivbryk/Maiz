@@ -7,7 +7,7 @@ export class NoteTodos extends React.Component {
     }
 
     componentDidMount() {
-        console.log('note-todos mounted');
+        // console.log('note-todos mounted');
     }
 
     render() {
@@ -15,13 +15,13 @@ export class NoteTodos extends React.Component {
 
         return (
             <article className="note-todos">
-                <h1>Note todos</h1>
                 <h2>{note.info.label}</h2>
                 <div className="todos-container">
                     {note.info.todos.map((todo, idx) => {
                         return (
-                            <div key={idx}>
-                                <input type="checkbox"
+                            <div className="todo-container" key={idx}>
+                                <input
+                                    type="checkbox"
                                     id={idx}
                                     name="note"
                                     value=""

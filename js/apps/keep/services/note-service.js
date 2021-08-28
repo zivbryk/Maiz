@@ -40,11 +40,13 @@ function query(filterBy) {
         const notesToShow = gNotes.filter(note => {
             switch (note.type) {
                 case "note-txt":
-                    return searchRex.test(note.info.txt)
+                    return searchRex.test(note.info.header) || searchRex.test(note.info.body)
                 case "note-img":
                     return searchRex.test(note.info.title)
                 case "note-todos":
                     return searchRex.test(note.info.label)
+                case "note-video":
+                    return searchRex.test(note.info.title)
             }
         })
         return Promise.resolve(notesToShow);
@@ -61,25 +63,76 @@ function _createNotes() {
 }
 
 
-function addNote(noteType, NoteInfo) {
+function addNote(noteType, noteInfo) {
     var noteToAdd
     switch (noteType) {
         case 'note-txt':
             noteToAdd = {
                 id: utilService.makeId(),
                 type: noteType,
-                isPnned: true,
+                isPinned: false,
                 info: {
-                    header: NoteInfo.header,
-                    body: NoteInfo.body
-                }
+                    header: noteInfo.header,
+                    body: noteInfo.body
+                },
+                noteColor: noteInfo.noteColor
+            }
+            break;
+
+        case 'note-img':
+            noteToAdd = {
+                id: utilService.makeId(),
+                type: noteType,
+                isPinned: false,
+                info: {
+                    title: noteInfo.title,
+                    url: noteInfo.url
+                },
+                noteColor: noteInfo.noteColor
+            }
+            break;
+
+        case 'note-video':
+            noteToAdd = {
+                id: utilService.makeId(),
+                type: noteType,
+                isPinned: false,
+                info: {
+                    title: noteInfo.title,
+                    url: noteInfo.url
+                },
+                noteColor: noteInfo.noteColor
+            }
+            break;
+
+        case 'note-todos':
+            noteToAdd = {
+                id: utilService.makeId(),
+                type: noteType,
+                isPinned: false,
+                info: {
+                    label: noteInfo.label,
+                    todos: noteInfo.todos
+                },
+                noteColor: noteInfo.noteColor
             }
             break;
         default:
+            //note-txt as default//    
+            noteToAdd = {
+                id: utilService.makeId(),
+                type: noteType,
+                isPinned: false,
+                info: {
+                    header: noteInfo.header,
+                    body: noteInfo.body
+                },
+                noteColor: noteInfo.noteColor
+            }
             break;
     }
 
-    gNotes.push(noteToAdd)
+    gNotes.unshift(noteToAdd)
     _saveNotesToStorage()
     return Promise.resolve()
 }
