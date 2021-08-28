@@ -12,22 +12,23 @@ import { NoteEdit } from './js/apps/keep/cmps/note-edit.jsx'
 // Simple React Component
 export function App() {
     return (
-        <Router>
-
-            <header>
-                <AppHeader />
-            </header>
-            <main className="app">
-                <Switch>
-                    <Route path="/zmail/:emailId" component={EmailDetails} />
-                    <Route path="/keeper/edit/:noteId" component={NoteEdit} />
-                    <Route path="/mbooks" component={Mbooks} />
-                    <Route path="/zmail" component={EmailApp} />
-                    <Route path="/keeper" component={NoteApp} />
-                    <Route path="/" component={AppHome} />
-                </Switch>
-            </main>
-        </Router>
+        <section className="maiz-main">
+            <Router>
+                <header>
+                    <AppHeader />
+                </header>
+                <main className="app">
+                    <Switch>
+                        <Route path="/zmail/:emailId" component={EmailDetails} />
+                        <Route path="/keeper/edit/:noteId" component={NoteEdit} />
+                        <Route path="/mbooks" component={Mbooks} />
+                        <Route path="/zmail" component={EmailApp} />
+                        <Route path="/keeper" component={NoteApp} />
+                        <Route path="/" component={AppHome} />
+                    </Switch>
+                </main>
+            </Router>
+        </section>
     )
 }
 

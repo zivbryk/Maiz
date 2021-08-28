@@ -2,12 +2,12 @@
     position: absolute;
     left: 30%;
     top: 30%;
-    background-color: rgba(155, 155, 155, 0.966);
+    background-color: #41c9b9f6;
     border-radius: 8px;
     width: 50%;
     /* height: 50%; */
     padding: 10px;
-    color: #303030;
+    color: #4d4d4d;
     font-family: Montserrat-regular;
 }
 
@@ -22,11 +22,11 @@
     justify-content: space-between;
     padding: 10px;
     font-weight: bold;
-    color: #ececec;
+    color: #4d4d4d;
 }
 
 .exit-compose {
-    background-color: #9E9D9C;
+    background-color: #41c9b970;
     border: none;
     border-radius: 8px;
     padding: 10px;
@@ -34,7 +34,7 @@
 }
 
 .email-compose-form {
-    color: #ececec;
+    color: #4d4d4d;
 }
 
 .email-compose-form>* {
@@ -52,4 +52,9 @@
     font-weight: bold;
     font-family: Montserrat-regular;
     font-size: 1rem;
+}
+
+.send-email-btn:hover {
+    background-color: #f9d432;
+    box-shadow: white 0px 0px 11px 1px;
 }
