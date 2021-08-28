@@ -4,7 +4,7 @@ import { NoteImg } from './note-img.jsx'
 import { NoteVideo } from './note-video.jsx'
 import { NoteActions } from './note-actions.jsx'
 
-export function NotePreview({ note, onToggleTodoStrike, onRemoveNote }) {
+export function NotePreview({ note, onToggleTodoStrike, onRemoveNote, onCloneNote, onPinNote }) {
     // console.log('NotePreview props: ', onToggleTodoStrike);
     function getCmp() {
         switch (note.type) {
@@ -24,7 +24,11 @@ export function NotePreview({ note, onToggleTodoStrike, onRemoveNote }) {
             < article  /* onClick={() => { onSelectNote(note) }} */ >
                 {getCmp()}
             </article >
-            < NoteActions note={note} onRemoveNote={onRemoveNote} />
+            < NoteActions
+                note={note}
+                onRemoveNote={onRemoveNote}
+                onCloneNote={onCloneNote}
+                onPinNote={onPinNote} />
         </section >
 
     )

@@ -1,12 +1,44 @@
 /* NOTE DETAILS */
 
 .note-edit {
-    height: 60vh;
+    height: 80vh;
     width: 600px;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
     break-inside: avoid;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin: 30px auto;
+    padding: 40px;
     text-align: center;
+}
+
+.img-inputs-container img {
+    width: 99%;
+}
+
+.edit-media-input {
+    font-size: 1.5rem;
+    margin: 5px;
+    outline-width: 0;
+    border: none;
+    padding: 16px 0px;
+    text-align: center;
+    border-radius: 0.7rem;
+    margin: 10px;
+    /* box-shadow: 0px 0px 10px 0px; */
+}
+
+.edit-txt-header, .edit-txt-body {
+    outline-width: 0;
+    border: none;
+}
+
+.edit-txt-header {
+    font-size: 1.5rem;
+}
+
+.edit-txt-body {
+    font-size: 1.2rem;
+    width: 100%;
+    height: 450px;
+    font-family: inherit;
 }

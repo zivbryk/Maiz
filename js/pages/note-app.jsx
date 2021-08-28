@@ -45,6 +45,15 @@ export class NoteApp extends React.Component {
             .then(this.loadNotes)
     }
 
+    onCloneNote = (noteId) => {
+        noteService.cloneNote(noteId)
+            .then(this.loadNotes)
+    }
+
+    onPinNote = (noteId) => {
+        noteService.onPinNote(noteId)
+            .then(this.loadNotes)
+    }
     render() {
         const { notes } = this.state
 
@@ -54,10 +63,28 @@ export class NoteApp extends React.Component {
                 <section className="filter-and-list flex flex-column align-center">
                     <NoteAdd onAddNote={this.onAddNote} />
                     <SearchFilter onSetFilter={this.onSetFilter} />
-                    <NoteList notes={notes}
-                        onToggleTodoStrike={this.onToggleTodoStrike}
-                        onSelectNote={this.onSelectNote}
-                        onRemoveNote={this.onRemoveNote} />
+                    <div className="pinned-notes-container">
+                        <h1>PINNED</h1>
+                        <NoteList notes={notes}
+                            onToggleTodoStrike={this.onToggleTodoStrike}
+                            onSelectNote={this.onSelectNote}
+                            onRemoveNote={this.onRemoveNote}
+                            onCloneNote={this.onCloneNote}
+                            onPinNote={this.onPinNote}
+                            pinned={'true'} />
+                    </div>
+
+                    <div className="unpinned-notes-container">
+                        <h1>OTHERS</h1>
+                        <NoteList notes={notes}
+                            onToggleTodoStrike={this.onToggleTodoStrike}
+                            onSelectNote={this.onSelectNote}
+                            onRemoveNote={this.onRemoveNote}
+                            onCloneNote={this.onCloneNote}
+                            onPinNote={this.onPinNote}
+                            pinned={'false'} />
+                    </div>
+
                 </section>
 
             </section>

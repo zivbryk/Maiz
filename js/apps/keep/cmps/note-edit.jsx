@@ -56,33 +56,44 @@ export class NoteEdit extends React.Component {
         switch (noteType) {
             case 'note-txt':
                 return (
-                    <form className="inputs-container flex flex-column align-center">
-                        <input type="text"
+                    <form className="txt-inputs-container flex flex-column">
+                        <input
+                            className="edit-txt-header"
+                            type="text"
                             name="header"
                             placeholder=""
                             value={note.info.header}
                             onChange={this.handleInputChange} />
 
-                        <input type="text"
+                        <textarea
+                            rows='20'
+                            cols='1'
+                            className="edit-txt-body"
+                            type="text"
                             name="body"
                             placeholder=""
                             value={note.info.body}
                             onChange={this.handleInputChange} />
-                    </form>
+                        <textarea />
+                    </form >
                 )
 
             case 'note-img':
                 return (
-                    <form className="inputs-container flex flex-column align-center">
+                    <form className="img-inputs-container flex flex-column align-center">
                         <img src={note.info.url} />
 
-                        <input type="text"
+                        <input
+                            className="edit-media-input"
+                            type="text"
                             name="title"
                             placeholder=""
                             value={note.info.title}
                             onChange={this.handleInputChange} />
 
-                        <input type="text"
+                        <input
+                            className="edit-media-input"
+                            type="text"
                             name="url"
                             placeholder=""
                             value={note.info.url}

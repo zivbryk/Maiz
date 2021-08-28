@@ -1,6 +1,7 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/storage.service.js'
 import { notes } from '../data/notes.js'
+import { func } from 'prop-types';
 
 export const noteService = {
     query,
@@ -8,7 +9,9 @@ export const noteService = {
     toggleTodoStrike,
     RemoveNote,
     addNote,
-    saveNote
+    saveNote,
+    cloneNote,
+    onPinNote
 }
 
 const KEY = 'notes';
@@ -167,18 +170,34 @@ function toggleTodoStrike(todoIdx, noteId) {
 }
 
 function RemoveNote(noteId) {
-    console.log('delete from service');
+    console.log('delete from service')
     var noteIdx = gNotes.findIndex(function (note) {
         return noteId === note.id
     })
     gNotes.splice(noteIdx, 1)
-    _saveNotesToStorage();
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
 function saveNote(noteToEdit) {
     var noteIdx = gNotes.findIndex(note => note.id === noteToEdit.id)
     gNotes[noteIdx] = noteToEdit
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function cloneNote(noteId) {
+    var note = JSON.parse(JSON.stringify(gNotes.find(note => noteId === note.id)))
+    note.id = utilService.makeId()
+    gNotes.unshift(note)
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function onPinNote(noteId) {
+    var note = gNotes.find(note => noteId === note.id)
+    note.isPinned = true
+    console.log('pinned!!');
     _saveNotesToStorage()
     return Promise.resolve()
 }
