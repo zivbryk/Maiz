@@ -3,3 +3,20 @@
 .strike-through {
     text-decoration: line-through;
 }
+
+.todos-container {
+    text-align: initial;
+}
+
+.todo-container label {
+    font-size: 1.5rem;
+}
+
+.todo-container input {
+    font-size: 1.5rem;
+}
+
+.note-todos h2 {
+    text-align: initial;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,10 @@
+/* NOTE VIDEO */
+
+.vid-player {
+    width: 99%;
+}
+
+.note-video h1 {
+    font-size: 1.5rem;
+    margin: 5px;
+}

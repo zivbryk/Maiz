@@ -1,0 +1,39 @@
+/* NOTE ACTIONS */
+
+.note-actions {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.note-actions:hover {
+    opacity: 1;
+}
+
+.actions-btn {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 17px 22px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #5F6368;
+    position: relative;
+}
+
+.actions-btn:hover {
+    background-color: rgba(131, 131, 131, 0.2);
+    color: #222222;
+}
+
+input.color-input {
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}

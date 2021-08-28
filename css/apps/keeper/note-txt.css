@@ -1,0 +1,13 @@
+/* NOTE TXT */
+
+.note-txt {
+    padding: 5px 10px;
+    text-align: start;
+}
+
+.toggle-txt {
+    /* text-decoration: underline; */
+    cursor: pointer;
+    color: blue;
+    /* font-weight: 700; */
+}

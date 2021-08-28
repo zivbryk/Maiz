@@ -115,6 +115,26 @@
     content: "\f53f";
 }
 
+.fas.fa-thumbtack::before {
+    content: "\f08d";
+}
+
+.fas.fa-edit::before {
+    content: "\f044";
+}
+
+.fas.fa-clone::before {
+    content: "\f24d";
+}
+
+.fas.fa-at::before {
+    content: "\f1fa";
+}
+
+.fas.fa-circle::before {
+    content: "\f111";
+}
+
 .far.fa-square::before {
     content: "\f0c8";
 }

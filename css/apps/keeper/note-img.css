@@ -1,0 +1,10 @@
+/* NOTE IMG */
+
+.note-img img {
+    width: 99%;
+}
+
+.note-img h1 {
+    font-size: 1.5rem;
+    margin: 5px;
+}

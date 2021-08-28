@@ -3,7 +3,7 @@ import { NoteList } from '../apps/keep/cmps/note-list.jsx'
 import { SearchFilter } from '../cmps/search-filter.jsx'
 import { NoteAdd } from '../apps/keep/cmps/note-add.jsx'
 import { NotePreview } from '../apps/keep/cmps/note-preview.jsx';
-import { NoteDetails } from '../apps/keep/cmps/note-details.jsx';
+import { NoteDetails } from '../apps/keep/cmps/note-edit.jsx';
 
 export class NoteApp extends React.Component {
     state = {
@@ -12,12 +12,12 @@ export class NoteApp extends React.Component {
     }
 
     componentDidMount() {
-        console.log('note mounted');
+        // console.log('note mounted');
         this.loadNotes();
     }
 
     loadNotes = () => {
-        console.log('notes loaded')
+        // console.log('notes loaded')
         noteService.query(this.state.filterBy).then((notes) => {
             // eventBusService.emit('notes-count', notes.length)
             this.setState({ notes });
