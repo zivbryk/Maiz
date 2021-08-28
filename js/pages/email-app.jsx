@@ -101,7 +101,7 @@ export class EmailApp extends React.Component {
 
     render() {
         const { emails, compose } = this.state
-        { !emails && <section className="loading"> <Loading /> </section> }
+        if (!emails) return <Loading />
         return (
 
             <section className="email-app">

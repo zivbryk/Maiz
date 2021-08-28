@@ -25,7 +25,7 @@ export class EmailDetails extends React.Component {
         emailService.changeEmailStatus(emailId, 'trash')
             .then(
                 this.onGoBack
-                );
+            );
     }
 
 
@@ -35,30 +35,30 @@ export class EmailDetails extends React.Component {
         if (!email) return <Loading />
         return (
             <section className="email-details">
-                <div className = "email-details-btns">
-                  <button onClick={this.onGoBack}>Go Back</button>
-                  <button className = "fas fa-trash" onClick={this.onChangeEmailStatus}></button>
+                <div className="email-details-btns">
+                    <button className="email-details-go-back" onClick={this.onGoBack}>Go Back</button>
+                    <button className="email-details-trash-btn fas fa-trash" onClick={this.onChangeEmailStatus}></button>
                 </div>
-              <table>
-                  <tbody>
-                      <tr>
-                        <td>
-                        <h2>{email.subject}</h2> 
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <h4> From: {email.from} to: {email.to}</h4>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                        <h3>{email.body}</h3>
-                        </td>
-                      </tr>
-                  </tbody>
-              </table>
-              
+                <table>
+                    <tbody>
+                        <tr className="email-details-tr">
+                            <td>
+                                <h2>{email.subject}</h2>
+                            </td>
+                        </tr>
+                        <tr className="email-details-tr">
+                            <td>
+                                <h4> From: {email.from} to: {email.to}</h4>
+                            </td>
+                        </tr>
+                        <tr className="email-details-tr email-body-tr">
+                            <td>
+                                <h3>{email.body}</h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </section >
         )
     }

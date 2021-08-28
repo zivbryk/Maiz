@@ -65,6 +65,12 @@
     font-size: 1.2rem;
 }
 
+.email-details.fas.fa-trash::before {
+    content: "\f1f8";
+    color: #555555c0;
+    font-size: 1.2rem;
+}
+
 .fas.fa-star::before {
     content: "\f005";
     color: #303030;
@@ -178,5 +184,5 @@
 .fas.fa-times::before {
     content: "\f00d";
     font-size: 1.2rem;
-    color: #d8d8d8;
+    color: #4d4d4d;
 }

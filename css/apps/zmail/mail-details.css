@@ -1,0 +1,83 @@
+.email-details {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #41c9b970;
+    border-radius: 10px;
+    min-height: 80vh;
+}
+
+@media screen and (min-width: 1060px) {
+    .email-details {
+        /* display: flex;
+        flex-direction: row; */
+        max-width: 1060px;
+    }
+}
+
+.email-details-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.email-details-go-back {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #f9d432b4;
+    color: #4d4d4d;
+    font-weight: bold;
+    font-family: Montserrat-regular;
+    font-size: 1rem;
+}
+
+.email-details-go-back:hover {
+    background-color: #f9d432;
+    box-shadow: white 0px 0px 11px 1px;
+}
+
+tr.email-details-tr:hover {
+    box-shadow: unset;
+}
+
+.email-details-trash-btn {
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    padding: 10px 15px;
+}
+
+.email-details-trash-btn:hover {
+    background-color: rgb(226, 226, 226);
+    border-radius: 50%;
+}
+
+.email-details table {
+    margin: 0px 10% 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: white 0px 0px 1px 3px;
+}
+
+.email-details table :nth-child(3) {
+    line-height: 4rem;
+}
+
+.email-details table :nth-child(2) {
+    border-bottom: 1px solid #4d4d4d41;
+}
+
+.email-details tr {
+    margin-right: 50px;
+}
+
+.email-body-tr {
+    text-align: center;
+}
