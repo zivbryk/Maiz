@@ -4,7 +4,7 @@ export const emails = [
         status: 'inbox',
         from: 'friend@appsus.com',
         subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        body: 'Would love to catch up sometime!',
         isRead: true,
         sentAt: 1551133930594,
         to: 'user@appsus.com'
