@@ -38,7 +38,7 @@
 }
 
 .note-container {
-    width: 100px;
+    width: 350px;
 }
 
 .default-note-form {
@@ -100,5 +100,8 @@ input.color-input {
         padding: 10px;
         padding: 17px 19px;
         font-size: 1.5rem;
+    }
+    .note-container {
+        width: 600px;
     }
 }
