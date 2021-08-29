@@ -1,5 +1,5 @@
 import { NotePreview } from '../cmps/note-preview.jsx'
-export function NoteList({ notes, onToggleTodoStrike, onRemoveNote, onCloneNote, onPinNote, pinned }) {
+export function NoteList({ notes, onToggleTodoStrike, onRemoveNote, onCloneNote, onPinNote, pinned, onSetNoteColor }) {
     var pinnedNotes = notes.filter(note => note.isPinned)
     var unPinnedNotes = notes.filter(note => !note.isPinned)
     var notesToRender = pinned === 'true' ? pinnedNotes : unPinnedNotes
@@ -12,6 +12,7 @@ export function NoteList({ notes, onToggleTodoStrike, onRemoveNote, onCloneNote,
                 onRemoveNote={onRemoveNote}
                 onCloneNote={onCloneNote}
                 onPinNote={onPinNote}
+                onSetNoteColor={onSetNoteColor}
             />)}
         </div>
     )

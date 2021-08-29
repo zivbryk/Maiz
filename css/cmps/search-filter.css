@@ -1,19 +1,20 @@
 .search-filter {
-    width: 400px;
+    /* width: 400px; */
     border: none;
     border-radius: 0.7rem;
     padding: 5px;
     background-color: #F1F3F4;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .search-input {
     padding: 11px, 0px;
     border: none;
     background-color: transparent;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-inline-start: 30px;
     color: #5F6368;
+    width: 140px;
 }
 
 .search-input:focus {
@@ -36,4 +37,15 @@
 
 .search-btn:hover {
     background-color: #dbdfe0;
+}
+
+@media (min-width: 630px) {
+    .search-input {
+        padding: 11px, 0px;
+        font-size: 1.2rem;
+        margin-inline-start: 30px;
+    }
+    .search-input {
+        width: 340px;
+    }
 }

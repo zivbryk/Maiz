@@ -12,12 +12,13 @@ export class NoteAdd extends React.Component {
                 txt: '',
                 doneAt: null
             }],
-            noteColor: ''
+            noteColor: '',
+            isPinned: ''
         }
     }
 
     componentDidMount() {
-        // console.log('not-add mounted')
+        // console.log('note-add mounted')
     }
 
     handleInputChange = (ev) => {
@@ -35,7 +36,6 @@ export class NoteAdd extends React.Component {
 
     onSubmitNote = (ev) => {
         ev.preventDefault()
-        console.log('note created in "note app"');
         this.props.onAddNote(this.state.noteType, this.state.info)
         this.setState(prevState => ({
             ...prevState, noteType: '', info: {
@@ -49,27 +49,27 @@ export class NoteAdd extends React.Component {
                     txt: '',
                     doneAt: null
                 }],
-                noteColor: ''
+                noteColor: '',
+                isPinned: ''
             }
         }))
     }
 
     toggleNoteForm = (noteType) => {
-        // console.log(noteType)
-        this.setState(prevState => ({ ...prevState, noteType: noteType }), () => { console.log(this.state.noteType) })
+        this.setState(prevState => ({ ...prevState, noteType: noteType }))
 
     }
 
     onDefaultClicked = () => {
-        // console.log(this.state.noteType)
         this.setState(prevState => ({ ...prevState, noteType: 'note-txt' }))
-        // console.log(this.state.noteType)
     }
 
     setNoteColor = (color) => {
-        // console.log('changing color')
-        // console.log(color)
-        this.setState(prevState => ({ ...prevState, info: { ...prevState.info, noteColor: color } }), () => { console.log(this.state.info.noteColor) })
+        this.setState(prevState => ({ ...prevState, info: { ...prevState.info, noteColor: color } }))
+    }
+
+    onPinNote = () => {
+        this.setState(prevState => ({ ...prevState, info: { ...prevState.info, isPinned: true } }))
     }
 
     onClose = () => {
@@ -85,13 +85,10 @@ export class NoteAdd extends React.Component {
                     txt: '',
                     doneAt: null
                 }],
-                noteColor: ''
+                noteColor: '',
+                isPinned: ''
             }
         }))
-    }
-
-    onPinNote = () => {
-        console.log('pinnig note');
     }
 
     getInput = () => {
@@ -119,9 +116,16 @@ export class NoteAdd extends React.Component {
                         </form>
 
                         <div className="new-note-action-btns flex align-center justify-center">
-                            <button onClick={this.onPinNote}>Pin Note</button>
-                            <button onClick={this.onChangeColor}>Change color</button>
-                            <button onClick={this.onClose}>Close</button>
+                            <button className="actions-btn fas fa-thumbtack" onClick={this.onPinNote}></button>
+
+                            <button className=" actions-btn note-color-btn fas fa-palette">
+                                <input className="color-input"
+                                    type="color"
+                                    onChange={(event) => { this.setNoteColor(event.target.value) }}
+                                    colorpick-eyedropper-active="true" />
+                            </button>
+
+                            <button className="actions-btn fas fa-window-close" onClick={this.onClose}></button>
                         </div>
                     </div>
                 )
@@ -148,9 +152,16 @@ export class NoteAdd extends React.Component {
                         </form>
 
                         <div className="new-note-action-btns flex align-center justify-center">
-                            <button onClick={this.onPinNote}>Pin Note</button>
-                            <button onClick={this.onChangeColor}>Change color</button>
-                            <button onClick={this.onClose}>Close</button>
+                            <button className="actions-btn fas fa-thumbtack" onClick={this.onPinNote}></button>
+
+                            <button className=" actions-btn note-color-btn fas fa-palette">
+                                <input className="color-input"
+                                    type="color"
+                                    onChange={(event) => { this.setNoteColor(event.target.value) }}
+                                    colorpick-eyedropper-active="true" />
+                            </button>
+
+                            <button className="actions-btn fas fa-window-close" onClick={this.onClose}></button>
                         </div>
                     </div>
                 )
@@ -181,9 +192,16 @@ export class NoteAdd extends React.Component {
                         </form>
 
                         <div className="new-note-action-btns flex align-center justify-center">
-                            <button onClick={this.onPinNote}>Pin Note</button>
-                            <button onClick={this.onChangeColor}>Change color</button>
-                            <button onClick={this.onClose}>Close</button>
+                            <button className="actions-btn fas fa-thumbtack" onClick={this.onPinNote}></button>
+
+                            <button className=" actions-btn note-color-btn fas fa-palette">
+                                <input className="color-input"
+                                    type="color"
+                                    onChange={(event) => { this.setNoteColor(event.target.value) }}
+                                    colorpick-eyedropper-active="true" />
+                            </button>
+
+                            <button className="actions-btn fas fa-window-close" onClick={this.onClose}></button>
                         </div>
                     </div>
                 )
@@ -212,23 +230,23 @@ export class NoteAdd extends React.Component {
                         </form>
 
                         <div className="new-note-action-btns flex align-center justify-center">
-                            <button onClick={this.onPinNote}>Pin Note</button>
+                            <button className="actions-btn fas fa-thumbtack" onClick={this.onPinNote}></button>
 
-                            <button className="note-color-btn fas fa-palette">
+                            <button className=" actions-btn note-color-btn fas fa-palette">
                                 <input className="color-input"
                                     type="color"
                                     onChange={(event) => { this.setNoteColor(event.target.value) }}
                                     colorpick-eyedropper-active="true" />
                             </button>
 
-                            <button onClick={this.onClose}>Close</button>
+                            <button className="actions-btn fas fa-window-close" onClick={this.onClose}></button>
                         </div>
                     </div>
                 )
 
             default:
                 return (
-                    <div className="default-note-form flex add-note-input">
+                    <div className="default-note-form flex add-note-input align-center">
                         <h2 onClick={this.onDefaultClicked}>Take a note...</h2 >
 
                         <div className="add-note-btns flex">

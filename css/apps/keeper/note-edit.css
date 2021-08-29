@@ -42,3 +42,7 @@
     height: 450px;
     font-family: inherit;
 }
+
+.edit-btn {
+    font-size: 1.5rem;
+}

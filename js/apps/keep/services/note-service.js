@@ -11,7 +11,8 @@ export const noteService = {
     addNote,
     saveNote,
     cloneNote,
-    onPinNote
+    onPinNote,
+    setNoteColor
 }
 
 const KEY = 'notes';
@@ -72,7 +73,7 @@ function addNote(noteType, noteInfo) {
             noteToAdd = {
                 id: utilService.makeId(),
                 type: noteType,
-                isPinned: false,
+                isPinned: noteInfo.isPinned,
                 info: {
                     header: noteInfo.header,
                     body: noteInfo.body
@@ -85,7 +86,7 @@ function addNote(noteType, noteInfo) {
             noteToAdd = {
                 id: utilService.makeId(),
                 type: noteType,
-                isPinned: false,
+                isPinned: noteInfo.isPinned,
                 info: {
                     title: noteInfo.title,
                     url: noteInfo.url
@@ -98,7 +99,7 @@ function addNote(noteType, noteInfo) {
             noteToAdd = {
                 id: utilService.makeId(),
                 type: noteType,
-                isPinned: false,
+                isPinned: noteInfo.isPinned,
                 info: {
                     title: noteInfo.title,
                     url: noteInfo.url
@@ -111,7 +112,7 @@ function addNote(noteType, noteInfo) {
             noteToAdd = {
                 id: utilService.makeId(),
                 type: noteType,
-                isPinned: false,
+                isPinned: noteInfo.isPinned,
                 info: {
                     label: noteInfo.label,
                     todos: noteInfo.todos
@@ -124,7 +125,7 @@ function addNote(noteType, noteInfo) {
             noteToAdd = {
                 id: utilService.makeId(),
                 type: noteType,
-                isPinned: false,
+                isPinned: fnoteInfo.isPinned,
                 info: {
                     header: noteInfo.header,
                     body: noteInfo.body
@@ -197,7 +198,13 @@ function cloneNote(noteId) {
 function onPinNote(noteId) {
     var note = gNotes.find(note => noteId === note.id)
     note.isPinned = true
-    console.log('pinned!!');
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+function setNoteColor(color, noteId) {
+    var note = gNotes.find(note => noteId === note.id)
+    note.noteColor = color
     _saveNotesToStorage()
     return Promise.resolve()
 }

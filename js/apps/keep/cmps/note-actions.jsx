@@ -1,13 +1,7 @@
 // import { noteService } from '../../keep/services/note-service.js'
 const { Link } = ReactRouterDOM
-export function NoteActions({ note, onRemoveNote, onCloneNote, onPinNote }) {
+export function NoteActions({ note, onRemoveNote, onCloneNote, onPinNote, onSetNoteColor }) {
 
-
-    function setNoteColor(color) {
-        // console.log('changing color')
-        // console.log(color)
-
-    }
 
     return (
         <div className="note-actions flex">
@@ -15,7 +9,7 @@ export function NoteActions({ note, onRemoveNote, onCloneNote, onPinNote }) {
             <button className="actions-btn fas fa-palette">
                 <input className="color-input"
                     type="color"
-                    onChange={(event) => { setNoteColor(event.target.value) }}
+                    onChange={(event) => { onSetNoteColor(event.target.value, note.id) }}
                     colorpick-eyedropper-active="true" />
             </button>
             <Link to={`/keeper/edit/${note.id}`}>

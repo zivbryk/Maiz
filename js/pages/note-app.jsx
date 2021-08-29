@@ -54,6 +54,12 @@ export class NoteApp extends React.Component {
         noteService.onPinNote(noteId)
             .then(this.loadNotes)
     }
+
+    onSetNoteColor = (color, noteId) => {
+        noteService.setNoteColor(color, noteId)
+            .then(this.loadNotes)
+    }
+
     render() {
         const { notes } = this.state
 
@@ -71,7 +77,8 @@ export class NoteApp extends React.Component {
                             onRemoveNote={this.onRemoveNote}
                             onCloneNote={this.onCloneNote}
                             onPinNote={this.onPinNote}
-                            pinned={'true'} />
+                            pinned={'true'}
+                            onSetNoteColor={this.onSetNoteColor} />
                     </div>
 
                     <div className="unpinned-notes-container">
@@ -82,7 +89,8 @@ export class NoteApp extends React.Component {
                             onRemoveNote={this.onRemoveNote}
                             onCloneNote={this.onCloneNote}
                             onPinNote={this.onPinNote}
-                            pinned={'false'} />
+                            pinned={'false'}
+                            onSetNoteColor={this.onSetNoteColor} />
                     </div>
 
                 </section>

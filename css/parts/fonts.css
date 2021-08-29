@@ -131,6 +131,10 @@
     content: "\f24d";
 }
 
+.fas.fa-window-close::before {
+    content: "\f410";
+}
+
 .fas.fa-at::before {
     content: "\f1fa";
 }

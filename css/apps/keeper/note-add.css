@@ -3,7 +3,7 @@
 .note-add {
     border: none;
     padding: 2px 0px;
-    margin-bottom: 20px;
+    margin: 15px 0px 20px 0px;
     border-radius: 0.7rem;
     background-color: #F1F3F4;
 }
@@ -13,7 +13,7 @@
     background-color: transparent;
     font-size: 1.2rem;
     color: #5F6368;
-    padding: 16px 0px;
+    padding: 0px;
 }
 
 .add-note-input:focus {
@@ -25,9 +25,9 @@
     cursor: pointer;
     background-color: transparent;
     padding: 10px;
-    padding: 17px 22px;
+    padding: 7px 9px;
     margin-inline-start: 10px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border-radius: 50%;
     color: #5F6368;
 }
@@ -38,20 +38,21 @@
 }
 
 .note-container {
-    width: 600px;
+    width: 100px;
 }
 
 .default-note-form {
     font-size: 1rem;
-    padding: 5px 30px 5px 0px;
+    padding-inline-end: 20px;
     justify-content: space-between;
-    width: 600px;
+    width: 350px;
 }
 
 .default-note-form h2 {
     width: 400px;
     margin: 0;
     padding: 15px 30px;
+    font-size: 1rem;
 }
 
 .default-note-form:first-child {
@@ -89,4 +90,15 @@ input.color-input {
     left: 0;
     right: 0;
     opacity: 0;
+}
+
+@media (min-width: 630px) {
+    .default-note-form {
+        width: 600px;
+    }
+    .add-note-btn {
+        padding: 10px;
+        padding: 17px 19px;
+        font-size: 1.5rem;
+    }
 }

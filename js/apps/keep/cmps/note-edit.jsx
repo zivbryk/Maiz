@@ -51,6 +51,27 @@ export class NoteEdit extends React.Component {
             .then(() => this.props.history.push('/keeper'))
     }
 
+    onPinNote = (noteId) => {
+        noteService.onPinNote(noteId)
+            .then(this.loadNotes)
+    }
+
+    setNoteColor = (color) => {
+        this.setState(prevState => ({
+            ...prevState,
+            note: {
+                ...prevState.note,
+                noteColor: color
+            }
+        }))
+    }
+
+    onToggleTodoStrike = (idx, noteId, ev) => {
+        ev.stopPropagation()
+        noteService.toggleTodoStrike(idx, noteId)
+            .then(this.loadNotes)
+    }
+
     getFormByNoteType = (noteType) => {
         const { note } = this.state
         switch (noteType) {
@@ -101,6 +122,61 @@ export class NoteEdit extends React.Component {
                     </form>
                 )
 
+            case 'note-video':
+                return (
+                    <form className="img-inputs-container flex flex-column align-center">
+                        <video className="vid-player" controls>
+                            <source src={note.info.url} type="video/mp4" />
+                        </video>
+                        <input
+                            className="edit-media-input"
+                            type="text"
+                            name="title"
+                            placeholder=""
+                            value={note.info.title}
+                            onChange={this.handleInputChange} />
+
+                        <input
+                            className="edit-media-input"
+                            type="text"
+                            name="url"
+                            placeholder=""
+                            value={note.info.url}
+                            onChange={this.handleInputChange} />
+                    </form>
+                )
+
+            case 'note-list':
+                return (
+                    <form className="img-inputs-container flex flex-column align-center">
+
+                        <input
+                            className="edit-txt-header"
+                            type="text"
+                            name="label"
+                            placeholder=""
+                            value={note.info.label}
+                            onChange={this.handleInputChange} />
+
+                        <div className="todos-container">
+                            {note.info.todos.map((todo, idx) => {
+                                return (
+                                    <div className="todo-container" key={idx}>
+                                        <input
+                                            type="checkbox"
+                                            id={idx}
+                                            name="note"
+                                            value=""
+                                            checked={note.info.todos[idx].doneAt !== null}
+                                            onChange={() => this.onToggleTodoStrike(idx, note.id, event)} />
+                                        <label className={note.info.todos[idx].doneAt && "strike-through"} htmlFor={idx}>{todo.txt}</label>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </form>
+                )
+
             default:
                 break;
         }
@@ -110,14 +186,21 @@ export class NoteEdit extends React.Component {
         const { note } = this.state
         if (!note) return <Loading />
         return (
-            <article className="note-edit flex flex-column" >
+            <article className="note-edit flex flex-column" style={{ backgroundColor: note.noteColor }} >
 
                 <div className="edit-forms-container">
                     {this.getFormByNoteType(note.type)}
                 </div>
 
                 <div className="edit-action-btns">
-                    <button onClick={this.onSaveNote}>close</button>
+                    <button className="edit-btn actions-btn fas fa-thumbtack" onClick={() => this.onPinNote(note.id)}></button>
+                    <button className="edit-btn actions-btn fas fa-palette">
+                        <input className="color-input"
+                            type="color"
+                            onChange={(event) => { this.setNoteColor(event.target.value) }}
+                            colorpick-eyedropper-active="true" />
+                    </button>
+                    <button className="edit-btn actions-btn fas fa-window-close" onClick={this.onSaveNote}></button>
                 </div>
             </article >
         )
