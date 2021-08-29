@@ -24,7 +24,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 50px 0 30px;
+        margin: 0;
     }
     .email-app-sidebar {
         display: flex;
@@ -45,6 +45,18 @@
         width: 100px;
         height: fit-content;
     }
+    .email-compose {
+        position: absolute;
+        left: 10%;
+        top: 20%;
+        background-color: #41c9b9f6;
+        border-radius: 8px;
+        width: 350px;
+        height: 70vh;
+        padding: 10px;
+        color: #4d4d4d;
+        font-family: Montserrat-regular;
+    }
 }
 
 @media (min-width: 630px) {
@@ -60,7 +72,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin: 50px 0 30px;
+        margin: 30px 0 30px;
     }
     .email-app-sidebar {
         display: flex;
@@ -68,27 +80,27 @@
         margin-right: 20px
     }
     .compose-email-btn::after {
-        content: "Compose";
+        content: "\ Compose";
         color: #303030;
     }
     .inbox-folder::after {
-        content: "Inbox";
+        content: "\ Inbox";
         color: #303030;
     }
     .starred-folder::after {
-        content: "Starred";
+        content: "\ Starred";
         color: #303030;
     }
     .sent-folder::after {
-        content: "Sent";
+        content: "\ Sent";
         color: #303030;
     }
     .draft-folder::after {
-        content: "Draft";
+        content: "\ Draft";
         color: #303030;
     }
     .trash-folder::after {
-        content: "Trash";
+        content: "\ Trash";
         color: #303030;
     }
     .email-side-filter {
@@ -98,6 +110,18 @@
     .container {
         width: 100%;
         height: unset;
+    }
+    .email-compose {
+        position: absolute;
+        left: 30%;
+        top: 30%;
+        background-color: #41c9b9f6;
+        border-radius: 8px;
+        width: 50%;
+        /* height: 50%; */
+        padding: 10px;
+        color: #4d4d4d;
+        font-family: Montserrat-regular;
     }
 }
 

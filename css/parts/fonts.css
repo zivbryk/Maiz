@@ -72,19 +72,19 @@
 .fas.fa-star::before {
     content: "\f005";
     color: #303030;
-    font-size: 1.2rem;
+    font-size: inherit;
 }
 
 .email-preview-btn.fas.fa-star::before {
     content: "\f005";
     color: #F9D532;
-    font-size: 1.2rem;
+    font-size: inherit;
 }
 
 .far.fa-star::before {
     content: "\f005";
     color: #303030;
-    font-size: 1.2rem;
+    font-size: inherit;
 }
 
 .email-preview-btn.far.fa-star::before {
@@ -164,19 +164,19 @@
 .fas.fa-inbox::before {
     content: "\f01c";
     color: #303030;
-    font-size: 1.2rem;
+    font-size: inherit;
 }
 
 .fas.fa-paper-plane::before {
     content: "\f1d8";
     color: #303030;
-    font-size: 1.2rem;
+    font-size: inherit;
 }
 
 .fab.fa-firstdraft::before {
     content: "\f3a1";
     color: #303030;
-    font-size: 1.2rem;
+    font-size: inherit;
 }
 
 .fas.fa-caret-down::before {

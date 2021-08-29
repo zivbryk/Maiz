@@ -1,3 +1,99 @@
 .app-home {
     text-align: center;
 }
+
+.home-jumbotron {
+    padding: 50px 0;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #41C9B8;
+    /* color: #303030; */
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.features-img {
+    max-width: 300px;
+}
+
+.features>* {
+    border: 1px solid #41c9b99a;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    max-width: 300px;
+}
+
+.features button {
+    font-family: Montserrat-regular;
+    font-size: 1rem;
+    background-color: #41c9b99a;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.testimonials {
+    padding: 80px;
+    font-size: 3rem;
+}
+
+.our-team {
+    margin-bottom: 50px;
+}
+
+.may-almog, .ziv-bryk {
+    padding-bottom: 40px;
+}
+
+.fab.fa-github::before {
+    content: "\f09b";
+    font-size: 2rem;
+}
+
+.fab.fa-linkdin::before {
+    content: "\f0e1";
+    font-size: 2rem;
+}
+
+.socials-may>*, .socials-ziv>* {
+    padding: 0px 15px
+}
+
+footer {
+    padding: 15px;
+    background-color: #41c9b963;
+    border-radius: 20px;
+    /* width: 100vw; */
+}
+
+@media (min-width: 630px) {
+    .features {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .features>* {
+        max-width: unset;
+    }
+    .features-img {
+        max-width: 400px;
+    }
+    .our-team {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .our-team>* {
+        max-width: unset;
+    }
+    .our-team img {
+        max-width: 250px;
+    }
+}

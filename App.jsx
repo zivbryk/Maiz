@@ -21,7 +21,7 @@ export function App() {
                     <Switch>
                         <Route path="/zmail/:emailId" component={EmailDetails} />
                         <Route path="/keeper/edit/:noteId" component={NoteEdit} />
-                        <Route path="/mbooks" component={Mbooks} />
+                        {/* <Route path="/mbooks" component={Mbooks} /> */}
                         <Route path="/zmail" component={EmailApp} />
                         <Route path="/keeper" component={NoteApp} />
                         <Route path="/" component={AppHome} />
