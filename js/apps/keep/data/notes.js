@@ -3,6 +3,46 @@ import { utilService } from '../../../services/util.service.js'
 export const notes = [
     {
         id: utilService.makeId(),
+        type: "note-img",
+        isPinned: true,
+        info: { title: "Japan!!", url: "assets/img/ziv-may1.JPG" },
+        noteColor: '#F28B82'
+    },
+    {
+        id: utilService.makeId(),
+        type: "note-todos",
+        isPinned: true,
+        info: {
+            label: "Trekking equipment",
+            todos: [{
+                txt: "thermal pans",
+                doneAt: null
+            },
+            {
+                txt: "trekking shows",
+                doneAt: 187111111
+            },
+            {
+                txt: "fix backpack",
+                doneAt: 187111111
+            },
+            {
+                txt: "change money",
+                doneAt: 187111111
+            },
+            {
+                txt: "buy train tickets",
+                doneAt: 187111111
+            },
+            {
+                txt: "Peanut butter",
+                doneAt: 187111111
+            }]
+        },
+        noteColor: '#436C9E'
+    },
+    {
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: {
@@ -13,29 +53,32 @@ export const notes = [
     }, {
         id: utilService.makeId(),
         type: "note-video",
-        isPinned: false,
+        isPinned: true,
         info: {
             url: "assets/vid/snowcar.mp4",
-            title: "Finnish Snow Car!"
+            title: "Lapland Trip 2021!"
         },
         noteColor: '#CBFF90'
     }, {
         id: utilService.makeId(),
         type: "note-txt",
-        isPinned: false,
+        isPinned: true,
         info: { header: "Buy Doron a Bday present" },
         noteColor: '#FFF476'
     }, {
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: false,
-        info: { header: "Fullstack Me Baby!" },
+        info: {
+            header: "Buy ETFs",
+            body: "reduce subscription fees"
+        },
         noteColor: '#E6C9A8'
     },
     {
         id: utilService.makeId(),
         type: "note-img",
-        isPinned: false,
+        isPinned: true,
         info: {
             url: "assets/img/garden.JPG",
             title: "December Garden"
@@ -70,16 +113,24 @@ export const notes = [
     },
     {
         id: utilService.makeId(),
-        type: "note-txt",
+        type: "note-img",
         isPinned: false,
-        info: { header: "Fullstack Me Baby!" },
+        info: { title: "the best fruit bowl!!", url: "assets/img/bowl.JPG" },
         noteColor: '#F28B82'
     },
     {
         id: utilService.makeId(),
         type: "note-txt",
         isPinned: false,
-        info: { header: "Fullstack Me Baby!" },
+        info: { header: "Finish sprint project!!!" },
         noteColor: '#AECBFA'
+    },
+    {
+        id: utilService.makeId(),
+        type: "note-txt",
+        isPinned: false,
+        info: { header: "Green credit card", body: "8790-6574-8793-7634" },
+        noteColor: '#C4E46D'
     }
+
 ]

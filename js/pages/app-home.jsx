@@ -6,7 +6,7 @@ export function AppHome() {
             </div>
             <div className="features flex flex-row space-evenly">
                 <div className="keeper-features">
-                    <img className="features-img" src="assets/img/zmail-mockup-1.jpg" alt="assets/img/maiz-logo.PNG" />
+                    <img className="features-img" src="assets/img/keeper-mockup-1.png" alt="assets/img/maiz-logo.PNG" />
                     <h3>Keeper</h3>
                     <button className="btn-keeper-features">Learn More</button>
                 </div>
